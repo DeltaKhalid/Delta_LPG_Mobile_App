@@ -1,14 +1,15 @@
 import 'package:delta_lpg_product_sale/presentation/ui/screens/add_to_cart_screen.dart';
 import 'package:delta_lpg_product_sale/presentation/ui/screens/favorite_product_screen.dart';
+import 'package:delta_lpg_product_sale/presentation/ui/widgets/drawer/custom_drawer_second.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
-import '../utils/image_assets.dart';
-import '../widgets/appbar/custom_appbar.dart';
-import '../widgets/drawer/custom_drawer.dart';
-import '../widgets/drawer/custom_drawer_second.dart';
-import 'home_dashboard_screen.dart';
+import '../../utils/image_assets.dart';
+import '../../widgets/appbar/custom_appbar.dart';
+import '../../widgets/drawer/custom_drawer.dart';
+
+import '../home_dashboard_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,7 +21,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 
   ///===================== Bottom Navbar Item start ===============///
-  ///===================== Test commit 02           ===============///
   int _currentIndex = 0;
 
   //final navigationKey = GlobalKey<CurvedNavigationBarState>();

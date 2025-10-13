@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_svg/svg.dart';
 
+import 'home/buy_lpg_screen.dart';
+import 'home/lpg_accessories_screen.dart';
+import 'home/safety_tips_screen.dart';
+import 'home/safety_video_screen.dart';
+
 class HomeDashboardScreen extends StatefulWidget {
   const HomeDashboardScreen({super.key});
 
@@ -119,91 +124,109 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
                 Expanded(
                     child: Column(
                       children: [
-                        /// ------------------ Left side ---------------- ///
-                        Container(
-                          height: 150,
-                          // color: Colors.red,
-                          decoration: BoxDecoration(
-                            color: Colors.green.shade100,
-                            // borderRadius: BorderRadius.circular(16),
-                            borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(10),
-                              bottomRight: Radius.circular(0),
-                              topLeft: Radius.circular(10),
-                              topRight: Radius.circular(10),
+                        /// ------------------ Buy LPG ---------------- ///
+                        GestureDetector(
+                          onTap: () {
+                            // Navigate to BuyLpgScreen
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const BuyLpgScreen()),
+                            );
+                          },
+                          child: Container(
+                            height: 150,
+                            // color: Colors.red,
+                            decoration: BoxDecoration(
+                              color: Colors.green.shade100,
+                              // borderRadius: BorderRadius.circular(16),
+                              borderRadius: const BorderRadius.only(
+                                bottomLeft: Radius.circular(10),
+                                bottomRight: Radius.circular(0),
+                                topLeft: Radius.circular(10),
+                                topRight: Radius.circular(10),
+                              ),
                             ),
-                          ),
-                          child: Center(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SvgPicture.asset(
-                                  'assets/images/gas_bottle.svg', // path to your SVG file
-                                  height: 27, // optional height
-                                  width: 27,  // optional width
-                                ),
-                                SizedBox(height: 10,),
-                                Text(
-                                  'Buy LPG', // your text here
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: AppColors.textColorGreen
+                            child: Center(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  SvgPicture.asset(
+                                    'assets/images/gas_bottle.svg', // path to your SVG file
+                                    height: 27, // optional height
+                                    width: 27,  // optional width
                                   ),
-                                ),
-
-                              ],
+                                  SizedBox(height: 10,),
+                                  Text(
+                                    'Buy LPG', // your text here
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.bold,
+                                        color: AppColors.textColorGreen
+                                    ),
+                                  ),
+                          
+                                ],
+                              ),
                             ),
+                          
+                          
+                          
                           ),
-
-
-
                         ),
 
                         SizedBox(
                           height: 3,
                         ),
                         /// ---------- LPG Accessories---------- ///
-                        Container(
-                          height: 150,
-                          // color: Colors.red,
-                          decoration: BoxDecoration(
-                            color: Colors.green.shade100,
-                            // borderRadius: BorderRadius.circular(16),
-                            borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(10),
-                              bottomRight: Radius.circular(0),
-                              topLeft: Radius.circular(10),
-                              topRight: Radius.circular(10),
+                        GestureDetector(
+                          onTap: () {
+                            // Navigate to BuyLpgScreen
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const LpgAccessoriesScreen()),
+                            );
+                          },
+                          child: Container(
+                            height: 150,
+                            // color: Colors.red,
+                            decoration: BoxDecoration(
+                              color: Colors.green.shade100,
+                              // borderRadius: BorderRadius.circular(16),
+                              borderRadius: const BorderRadius.only(
+                                bottomLeft: Radius.circular(10),
+                                bottomRight: Radius.circular(0),
+                                topLeft: Radius.circular(10),
+                                topRight: Radius.circular(10),
+                              ),
                             ),
-                          ),
-                          child: Center(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SvgPicture.asset(
-                                  'assets/images/lpg_chula.svg', // path to your SVG file
-                                  height: 27, // optional height
-                                  width: 27,  // optional width
-                                ),
-
-                                SizedBox(height: 10,),
-
-                                Text(
-                                  'LPG Accessories', // your text here
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.bold,
-                                    color: AppColors.textColorGreen
+                            child: Center(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  SvgPicture.asset(
+                                    'assets/images/lpg_chula.svg', // path to your SVG file
+                                    height: 27, // optional height
+                                    width: 27,  // optional width
                                   ),
-                                ),
 
-                              ],
+                                  SizedBox(height: 10,),
+
+                                  Text(
+                                    'LPG Accessories', // your text here
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold,
+                                      color: AppColors.textColorGreen
+                                    ),
+                                  ),
+
+                                ],
+                              ),
                             ),
-                          ),
 
+                          ),
                         ),
                       ],
                     )
@@ -216,8 +239,66 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
                     child: Column(
                       children: [
                         /// ---------- Safety Video ------------- ///
-                        Padding(
-                          padding: const EdgeInsets.only(top: 70),
+                        GestureDetector(
+                          onTap: () {
+                            // Navigate to BuyLpgScreen
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const SafetyVideoScreen()),
+                            );
+                          },
+
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 70),
+                            child: Container(
+                              height: 150,
+                              // color: Colors.amber,
+                              decoration: BoxDecoration(
+                                color: Colors.green.shade100,
+                                // borderRadius: BorderRadius.circular(16),
+                                borderRadius: const BorderRadius.only(
+                                  bottomLeft: Radius.circular(0),
+                                  bottomRight: Radius.circular(10),
+                                  topLeft: Radius.circular(10),
+                                  topRight: Radius.circular(10),
+                                ),
+                              ),
+                              child: Center(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    SvgPicture.asset(
+                                      'assets/images/safety_video_02.svg', // path to your SVG file
+                                      height: 27, // optional height
+                                      width: 27,  // optional width
+                                    ),
+                                    SizedBox(height: 10,),
+                                    Text(
+                                      'Safety Video', // your text here
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.green
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 3,),
+
+                        /// ---------- Safety Tips of LPG ------------- ///
+                        GestureDetector(
+                          onTap: () {
+                            // Navigate to BuyLpgScreen
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const SafetyTipsScreen()),
+                            );
+                          },
                           child: Container(
                             height: 150,
                             // color: Colors.amber,
@@ -231,68 +312,29 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
                                 topRight: Radius.circular(10),
                               ),
                             ),
+
                             child: Center(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   SvgPicture.asset(
-                                    'assets/images/safety_video_02.svg', // path to your SVG file
+                                    'assets/images/safety_tips.svg', // path to your SVG file
                                     height: 27, // optional height
                                     width: 27,  // optional width
                                   ),
                                   SizedBox(height: 10,),
                                   Text(
-                                    'Safety Video', // your text here
+                                    'Safety Tips of LPG', // your text here
                                     style: TextStyle(
                                         fontSize: 12,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.green
+                                        color: AppColors.textColorGreen
                                     ),
                                   ),
+
                                 ],
                               ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 3,),
-
-                        /// ---------- Safety Tips of LPG ------------- ///
-                        Container(
-                          height: 150,
-                          // color: Colors.amber,
-                          decoration: BoxDecoration(
-                            color: Colors.green.shade100,
-                            // borderRadius: BorderRadius.circular(16),
-                            borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(0),
-                              bottomRight: Radius.circular(10),
-                              topLeft: Radius.circular(10),
-                              topRight: Radius.circular(10),
-                            ),
-                          ),
-
-                          child: Center(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SvgPicture.asset(
-                                  'assets/images/safety_tips.svg', // path to your SVG file
-                                  height: 27, // optional height
-                                  width: 27,  // optional width
-                                ),
-                                SizedBox(height: 10,),
-                                Text(
-                                  'Safety Tips of LPG', // your text here
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: AppColors.textColorGreen
-                                  ),
-                                ),
-
-                              ],
                             ),
                           ),
                         ),

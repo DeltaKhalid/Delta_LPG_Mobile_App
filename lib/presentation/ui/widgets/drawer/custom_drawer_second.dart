@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../screens/home_screen.dart';
+import '../../screens/home/home_screen.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/image_assets.dart';
 
@@ -102,18 +102,18 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                     Expanded(
                       flex: 8,
                       child: Container(
-                        padding: const EdgeInsets.all(5),
-                        margin: EdgeInsets.only(left: 10),
-                        height: 100,
-                        //color: Colors.green,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            //color: Colors.green, // Border color
-                            color: AppColors.primaryColorSecond, // Border color
-                            width: 1.0, // Border width
+                          padding: const EdgeInsets.all(5),
+                          margin: EdgeInsets.only(left: 10),
+                          height: 100,
+                          //color: Colors.green,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              //color: Colors.green, // Border color
+                              color: AppColors.primaryColorSecond, // Border color
+                              width: 1.0, // Border width
+                            ),
                           ),
-                        ),
 
 
 
@@ -432,4 +432,3 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
     );
   }
 }
-
