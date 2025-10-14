@@ -1,8 +1,10 @@
+import 'package:delta_lpg_product_sale/presentation/ui/widgets/appbar/custom_appbar_second.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/appbar/custom_appbar.dart';
 import '../../widgets/drawer/custom_drawer.dart';
 import '../../widgets/drawer/custom_drawer_second.dart';
+import '../../widgets/appbar/custom_appbar_second.dart';
 
 
 class BuyLpgScreen extends StatefulWidget {
@@ -15,40 +17,42 @@ class BuyLpgScreen extends StatefulWidget {
 class _BuyLpgScreenState extends State<BuyLpgScreen> {
   @override
   Widget build(BuildContext context) {
-    return Placeholder(
-      child: Scaffold(
+    return Scaffold(
 
 
-        /// ------------------------------------- AppBar ------------------------------------------------------------------------- ///
-        appBar: const CustomAppBar(title: 'Delta LPG',),
+      /// ------------------------------------- AppBar ------------------------------------------------------------------------- ///
+      // appBar:  CustomAppbarSecond(title: 'Buy LPG'),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(60.0), // set your appbar height
+        child: CustomAppbarSecond(title: 'Buy LPG'),
+      ),
 
-        /// ------------------------------------- Drawer ------------------------------------------------------------------------- ///
-        drawer: CustomDrawerSecond(),
+      /// ------------------------------------- Drawer ------------------------------------------------------------------------- ///
+      drawer: CustomDrawerSecond(),
 
-        /// ------------------------------------- Body --------------------------------------------------------------------------- ///
-        body: SafeArea(
-          child: Column(
-            children: [
-              Expanded(  // Expands the container to take full available space
-                child: Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.only(left: 10, right: 10),
-                  margin: const EdgeInsets.only(left: 8, right: 8, bottom: 5),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: Column(
-                    children: [
-                      Center(child: Text('This is Buy LPG Screen.'))
-                    ],
-                  ),
+      /// ------------------------------------- Body --------------------------------------------------------------------------- ///
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(  // Expands the container to take full available space
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.only(left: 10, right: 10),
+                margin: const EdgeInsets.only(left: 8, right: 8, bottom: 5),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10.0),
                 ),
-              )
-            ],
-          ),
+                child: Column(
+                  children: [
+                    Center(child: Text('This is Buy LPG Screen.'))
+                  ],
+                ),
+              ),
+            )
+          ],
         ),
-      )
+      ),
     );
 
 

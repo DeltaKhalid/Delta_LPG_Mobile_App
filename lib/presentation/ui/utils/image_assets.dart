@@ -35,6 +35,9 @@ class ImageAssets {
 
   ///---------- AppBar Icons ----------///
   static const String iconSearchSVG = '$_IMAGE_PATH/search_icon_2.svg';
+  static const String iconBackArrow = '$_IMAGE_PATH/back_arrow.svg';
+
+
 
 
   ///---------- Navigation Icons ---///
