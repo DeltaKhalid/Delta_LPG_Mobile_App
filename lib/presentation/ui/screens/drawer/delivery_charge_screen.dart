@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/appbar/custom_appbar_second.dart';
-import '../widgets/drawer/custom_drawer_second.dart';
+import '../../widgets/appbar/custom_appbar_second.dart';
+import '../../widgets/drawer/custom_drawer_second.dart';
 
-class TutorialScreen extends StatefulWidget {
-  const TutorialScreen({super.key});
+class DeliveryChargeScreen extends StatefulWidget {
+  const DeliveryChargeScreen({super.key});
 
   @override
-  State<TutorialScreen> createState() => _TutorialScreenState();
+  State<DeliveryChargeScreen> createState() => _DeliveryChargeScreenState();
 }
 
-class _TutorialScreenState extends State<TutorialScreen> {
+class _DeliveryChargeScreenState extends State<DeliveryChargeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-
       /// ------------------------------------- AppBar ------------------------------------------------------------------------- ///
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60.0), // set your appbar height
-        child: CustomAppbarSecond(title: 'Tutorial'),
+        child: CustomAppbarSecond(title: 'Delivery Charge'),
       ),
 
       /// ------------------------------------- Drawer ------------------------------------------------------------------------- ///
@@ -40,7 +38,7 @@ class _TutorialScreenState extends State<TutorialScreen> {
                 ),
                 child: Column(
                   children: [
-                    Center(child: Text('This is Tutorial Screen.'))
+                    Center(child: Text('This is Delivery Charge Screen.'))
                   ],
                 ),
               ),
@@ -48,7 +46,6 @@ class _TutorialScreenState extends State<TutorialScreen> {
           ],
         ),
       ),
-
     );
   }
 }

@@ -2,9 +2,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../screens/home/faq_screen.dart';
+import '../../screens/drawer/about_us_screen.dart';
+import '../../screens/drawer/contact_us_screen.dart';
+import '../../screens/drawer/delivery_charge_screen.dart';
+import '../../screens/drawer/faq_screen.dart';
 import '../../screens/home/home_screen.dart';
-import '../../screens/tutorial_screen.dart';
+import '../../screens/drawer/return_refund_screen.dart';
+import '../../screens/drawer/safety_guide_screen.dart';
+import '../../screens/drawer/tutorial_screen.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/image_assets.dart';
 
@@ -306,7 +311,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 print("Home 1 is Clicked");
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const HomeScreen()),
+                  MaterialPageRoute(builder: (context) => const AboutUsScreen()),
                 );
               },
             ),
@@ -326,7 +331,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 print("Home 1 is Clicked");
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const HomeScreen()),
+                  MaterialPageRoute(builder: (context) => const SafetyGuideScreen()),
                 );
               },
             ),
@@ -346,7 +351,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 print("Home 1 is Clicked");
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const HomeScreen()),
+                  MaterialPageRoute(builder: (context) => const ReturnRefundScreen()),
                 );
               },
             ),
@@ -366,7 +371,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 print("Home 1 is Clicked");
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const HomeScreen()),
+                  MaterialPageRoute(builder: (context) => const DeliveryChargeScreen()),
                 );
               },
             ),
@@ -386,7 +391,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 print("Home 1 is Clicked");
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const HomeScreen()),
+                  MaterialPageRoute(builder: (context) => const ContactUsScreen()),
                 );
               },
             ),
