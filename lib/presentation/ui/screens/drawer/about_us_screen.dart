@@ -97,12 +97,15 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                     ),
 
                     // Title
-                    Text(
-                      "Welcome to Out Company",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.black87,
+                    Center(
+                      child: Text(
+                        "Welcome to Out Company",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.black87,
+                        ),
                       ),
                     ),
                     SizedBox(height: 10),
@@ -112,6 +115,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                       "We are a team of passionate professionals dedicated to "
                           "building innovative and high-quality digital products. "
                           "Our goal is to make technology simple, accessible, and impactful.",
+                      textAlign: TextAlign.justify,
                       style: TextStyle(
                         fontSize: 15,
                         height: 1.5,
