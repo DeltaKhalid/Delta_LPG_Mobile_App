@@ -395,7 +395,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 );
               },
             ),
-            ///---------------------------------------- Login -------------------------------------------------------------///
+            ///---------------------------------------- Login -------------------------------------------------------------------///
             ListTile(
               contentPadding: const EdgeInsets.symmetric(horizontal: 10),
               visualDensity: const VisualDensity(vertical: -4), // reduces height
@@ -415,12 +415,6 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 );
               },
             ),
-
-
-
-
-
-
 
 
             Divider(
