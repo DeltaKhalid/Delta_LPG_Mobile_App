@@ -21,7 +21,6 @@ class _BuyLpgScreenState extends State<BuyLpgScreen> {
 
 
       /// ------------------------------------- AppBar ------------------------------------------------------------------------- ///
-      // appBar:  CustomAppbarSecond(title: 'Buy LPG'),
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60.0), // set your appbar height
         child: CustomAppbarSecond(title: 'Buy LPG'),

@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/appbar/custom_appbar.dart';
-import '../../widgets/appbar/custom_appbar_second.dart';
-import '../../widgets/drawer/custom_drawer.dart';
-import '../../widgets/drawer/custom_drawer_second.dart';
+import '../widgets/appbar/custom_appbar_second.dart';
+import '../widgets/drawer/custom_drawer_second.dart';
 
-
-class SafetyTipsScreen extends StatefulWidget {
-  const SafetyTipsScreen({super.key});
+class TutorialScreen extends StatefulWidget {
+  const TutorialScreen({super.key});
 
   @override
-  State<SafetyTipsScreen> createState() => _SafetyTipsScreenState();
+  State<TutorialScreen> createState() => _TutorialScreenState();
 }
 
-class _SafetyTipsScreenState extends State<SafetyTipsScreen> {
+class _TutorialScreenState extends State<TutorialScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+
       /// ------------------------------------- AppBar ------------------------------------------------------------------------- ///
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60.0), // set your appbar height
-        child: CustomAppbarSecond(title: 'Safety Tips'),
+        child: CustomAppbarSecond(title: 'Tutorial'),
       ),
 
       /// ------------------------------------- Drawer ------------------------------------------------------------------------- ///
@@ -41,7 +40,7 @@ class _SafetyTipsScreenState extends State<SafetyTipsScreen> {
                 ),
                 child: Column(
                   children: [
-                    Center(child: Text('This is Safety Tips Screen.'))
+                    Center(child: Text('This is Tutorial Screen.'))
                   ],
                 ),
               ),

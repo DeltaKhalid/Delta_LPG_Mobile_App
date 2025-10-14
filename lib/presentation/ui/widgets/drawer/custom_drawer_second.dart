@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../screens/home/home_screen.dart';
+import '../../screens/tutorial_screen.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/image_assets.dart';
 
@@ -264,7 +265,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 print("Home 1 is Clicked");
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const HomeScreen()),
+                  MaterialPageRoute(builder: (context) => const TutorialScreen()),
                 );
               },
             ),

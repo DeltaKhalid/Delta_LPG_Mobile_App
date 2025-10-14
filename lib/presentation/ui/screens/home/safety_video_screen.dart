@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../widgets/appbar/custom_appbar.dart';
+import '../../widgets/appbar/custom_appbar_second.dart';
 import '../../widgets/drawer/custom_drawer.dart';
 import '../../widgets/drawer/custom_drawer_second.dart';
 
@@ -16,7 +17,10 @@ class _SafetyVideoScreenState extends State<SafetyVideoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       /// ------------------------------------- AppBar ------------------------------------------------------------------------- ///
-      appBar: const CustomAppBar(title: 'Delta LPG',),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(60.0), // set your appbar height
+        child: CustomAppbarSecond(title: 'Safety Video'),
+      ),
 
       /// ------------------------------------- Drawer ------------------------------------------------------------------------- ///
       drawer: CustomDrawerSecond(),
