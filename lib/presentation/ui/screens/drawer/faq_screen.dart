@@ -14,24 +14,55 @@ class _FaqScreenState extends State<FaqScreen> {
   // List of FAQs
   final List<Map<String, String>> faqs = [
     {
-      'question': 'What is Flutter?',
+      'question': 'What is LPG??',
       'answer':
-      'Flutter is an open-source UI framework by Google for building beautiful, natively compiled applications for mobile, web, and desktop from a single codebase.'
+      'Liquefied petroleum gas (also called LPG, GPL, LP Gas, or autogas) is a mixture of hydrocarbon gases used as a fuel in heating appliances '
+          'and vehicles, and increasingly replacing chlorofluorocarbons as an aerosol propellant and a refrigerant to reduce damage to the ozone '
+          'layer, inferring that it is flammable. Varieties of LPG bought and sold include mixes that are primarily propane, mixes that are '
+          'primarily butane, and the more common, mixes including both propane (60%) and butane (40%), depending on the season—in winter more '
+          'propane, in summer more butane. Propylene and butylenes are usually also present in small concentration. A powerful odorant, '
+          'ethanethiol, is added so that leaks can be detected easily. The international standard is EN 589. In the United States, '
+          'thiophene or amyl mercaptan are also approved odorants.'
     },
     {
-      'question': 'How does Flutter work?',
+      'question': 'What is LPG Dispenser?',
       'answer':
-      'Flutter uses the Dart programming language and its own rendering engine to draw widgets directly to the screen, which makes apps fast and customizable.'
+      'LPG Dispenser is a machine which makes filling of specific volume of Liquid Petroleum Gas by pulsing a side channel, vane or submersible '
+          'LPG pump,,one or more times, until the total volume of liquid required has been pumped. There are mainly there types of LPG dispensers '
+          'according to their measuring methods.'
     },
     {
-      'question': 'Is Flutter free to use?',
+      'question': 'What is the working pressure of a LPG dispenser?',
       'answer':
-      'Yes! Flutter is completely free and open-source, supported by Google and the community.'
+      'LPG gas is in liquid state over 6 bars. So our systems are designed to work only over 6 bars. Under normal conditions working pressure is between 9-12 Bars.'
     },
     {
-      'question': 'Can I use Flutter for web development?',
+      'question': 'Can we make calibration for LPG Dispenser?',
       'answer':
-      'Yes. Flutter supports building responsive web applications using the same Dart codebase as mobile apps.'
+      'Yes, calibration can be performed using standard procedures and certified equipment.'
+    },
+    {
+      'question': 'What is the lifetime of a LPG meter?',
+      'answer':
+      'LPG meters generally last 5–10 years depending on usage and maintenance.'
+    },
+    {
+      'question': 'When filters of LPG Dispenser should be cleaned?',
+      'answer':
+      'After 30.000lt. you should change the first filter. In every 100.000lt. '
+          'de second filter should be changed. It is also important to make calibration '
+          'every time you change filters.'
+    },
+    {
+      'question': 'What is Automatic Temperature Compensation (ATC)?',
+      'answer':
+      'A liquid is subject to expansion or shrinkage resulting from temperature changes. Since LPG is liquid, '
+          'volume also changes due to temperature. ATC is the technology correcting the measured volume '
+          'automatically in function of the measured temperature. In conformity with the European Metrological '
+          'Standards the volume is converted into litres to the standard reference temperature of 15°C. In this '
+          'way your dispenser will take into account the volume changes as a result of the temperature '
+          'fluctuations and you can sell the total volume you have purchased. With ATC the ‘lost litres’'
+          ' belong to the past and you will have an incontestable control of your stock.'
     },
   ];
 
@@ -47,16 +78,16 @@ class _FaqScreenState extends State<FaqScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /// ------------------------------------- AppBar -------------------------------------
+      /// ------------------------------------- AppBar ------------------------------------- ///
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60.0),
         child: CustomAppbarSecond(title: 'FAQ'),
       ),
 
-      /// ------------------------------------- Drawer -------------------------------------
+      /// ------------------------------------- Drawer ------------------------------------- ///
       drawer: CustomDrawerSecond(),
 
-      /// ------------------------------------- Body ---------------------------------------
+      /// ------------------------------------- Body --------------------------------------- ///
       backgroundColor: const Color(0xFFE8ECF7),
       body: Stack(
         children: [
