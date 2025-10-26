@@ -78,9 +78,9 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     // small top indicator
-                    Center(
+                    const Center(
                       child: Padding(
                         padding: EdgeInsets.only(bottom: 16),
                         child: SizedBox(
@@ -97,7 +97,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                     ),
 
                     // Title
-                    Center(
+                    const Center(
                       child: Text(
                         "Our Office Addres",
                         textAlign: TextAlign.center,
@@ -108,10 +108,10 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
 
                     // Description
-                    Text(
+                    const Text(
                       "We are a team of passionate professionals dedicated to "
                           "building innovative and high-quality digital products. "
                           "Our goal is to make technology simple, accessible, and impactful.",
@@ -122,6 +122,122 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                         color: Colors.black54,
                       ),
                     ),
+
+                    Container(
+                      width: 160,
+                      margin: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(16),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: 8,
+                            offset: Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Stack(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(12),
+                                child: Image.network(
+                                  'https://images.unsplash.com/photo-1506744038136-46273834b3fb', // demo image
+                                  width: double.infinity,
+                                  height: 100,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              Positioned(
+                                left: 8,
+                                bottom: 8,
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                                  decoration: BoxDecoration(
+                                    color: Colors.blue,
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  child: Text(
+                                    '\$135.00',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                top: 8,
+                                right: 8,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    shape: BoxShape.circle,
+                                  ),
+                                  padding: EdgeInsets.all(4),
+                                  child: Icon(
+                                    Icons.favorite,
+                                    color: Colors.red,
+                                    size: 20,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  '15 Stocks Left',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.grey[700],
+                                  ),
+                                ),
+                                Row(
+                                  children: [
+                                    Icon(Icons.star, color: Colors.amber, size: 15),
+                                    SizedBox(width: 2),
+                                    Text(
+                                      '4.5',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                    SizedBox(width: 2),
+                                    Text(
+                                      '(201)',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        color: Colors.grey,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 2),
+                                Text(
+                                  'FORM Smart Swim\nGoggles 2',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 13,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+
+
+
                   ],
                 ),
               ),

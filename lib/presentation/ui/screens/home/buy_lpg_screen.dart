@@ -55,6 +55,359 @@ class _BuyLpgScreenState extends State<BuyLpgScreen> {
   final Set<int> orderedItems = {};
 
 
+  /// =========================================================== Show Dialog ================================================ ///
+  void _showOrderDialog(Map<String, String> product, int index) {
+    int qty = 1;
+    String type = 'Refill';
+    final int unitPrice = int.tryParse(product['price'] ?? '0') ?? 0;
+
+    showDialog(
+      context: context,
+      builder: (context) {
+        return StatefulBuilder(
+          builder: (context, setState) {
+            final total = unitPrice + (type == 'New' ? 2000 : 0);
+            return AlertDialog(
+              contentPadding: const EdgeInsets.all(12),
+              content: SizedBox(
+                width: MediaQuery.of(context).size.width * 0.85,
+                height: MediaQuery.of(context).size.width * 0.45,
+
+                child: Center(
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          // Left: Product image
+                          Container(
+                            width: 80,
+                            height: 80,
+                            padding: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(3),
+                              child: product['image']!.startsWith('assets/')
+                                  ? Image.asset(product['image']!, fit: BoxFit.cover)
+                                  : Image.network(product['image']!, fit: BoxFit.cover),
+                            ),
+                          ),
+                          const SizedBox(width: 16),
+
+                          // Right: Details & controls
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                // Title
+                                Text(
+                                  product['name'] ?? '',
+                                  style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                                ),
+                                const SizedBox(height: 8),
+
+                                // Price
+                                Text(
+                                  '৳ ${total.toString()}',
+                                  style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.black87),
+                                ),
+                                const SizedBox(height: 6),
+                                Text('Total: ৳ ${ (total * qty).toString() }', style: const TextStyle(color: Colors.black54)),
+
+                                // Quantity selector
+                                Row(
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {
+                                        if (qty > 1) setState(() => qty -= 1);
+                                      },
+                                      icon: const Icon(Icons.remove),
+                                    ),
+                                    Container(
+                                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                                      decoration: BoxDecoration(border: Border.all(color: Colors.grey.shade300)),
+                                      child: Text(qty.toString(), style: const TextStyle(fontSize: 16)),
+                                    ),
+                                    IconButton(
+                                      onPressed: () => setState(() => qty += 1),
+                                      icon: const Icon(Icons.add),
+                                    ),
+                                  ],
+                                ),
+
+                              ],
+                            ),
+                          ),
+
+
+
+
+                        ],
+                      ),
+
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+
+                          SizedBox(
+                            height: 40,
+                            width: 120,
+                            child: ElevatedButton(
+                              // style: ElevatedButton.styleFrom(backgroundColor: Colors.amberAccent[700]),
+
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.amberAccent[700],
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8), // 👈 Rounded corners (3 radius)
+                                ),
+                              ),
+
+                              onPressed: () {
+                                setState(() {
+                                  // add to cart: track by index (you can extend to store qty & type)
+                                  this.setState(() => orderedItems.add(index));
+                                });
+                                Navigator.of(context).pop();
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text('Added ${product['name']} x$qty to cart')),
+                                );
+                              },
+                              child: const Text('Add to Cart'),
+                            ),
+                          ),
+                          const SizedBox(width: 5),
+
+                          SizedBox(
+                            height: 40,
+                            width: 110,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.green,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8), // 👈 Rounded corners (3 radius)
+                                ),
+                              ),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                                // Handle buy now (navigate to checkout or perform action)
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text('Buying ${product['name']} x$qty')),
+                                );
+                              },
+                              child: const Text('Buy Now'),
+                            ),
+                          )
+
+                        ],
+                      ),
+
+
+
+
+                    ],
+                  ),
+                ),
+
+
+                // child: Column(
+                //   mainAxisSize: MainAxisSize.min,
+                //   children: [
+                //     Text(
+                //       product['name'] ?? '',
+                //       style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                //     ),
+                //     const SizedBox(height: 20),
+                //     Text(
+                //       'Price: ৳ ${unitPrice.toString()}',
+                //       style: const TextStyle(fontSize: 18, color: Colors.black87),
+                //     ),
+                //     const SizedBox(height: 10),
+                //     Text(
+                //       'Total: ৳ ${(total * qty).toString()}',
+                //       style: const TextStyle(fontSize: 18, color: Colors.black87),
+                //     ),
+                //     const SizedBox(height: 20),
+                //     // Additional controls (type selection, quantity selector, actions) can be added here
+                //   ],
+                // ),
+
+
+
+
+
+
+
+
+
+
+                // child: Row(
+                //   crossAxisAlignment: CrossAxisAlignment.start,
+                //   children: [
+                //     // Left: Product image
+                //     Container(
+                //       width: 50,
+                //       height: 50,
+                //       padding: const EdgeInsets.all(8),
+                //       child: ClipRRect(
+                //         borderRadius: BorderRadius.circular(8),
+                //         child: product['image']!.startsWith('assets/')
+                //             ? Image.asset(product['image']!, fit: BoxFit.cover)
+                //             : Image.network(product['image']!, fit: BoxFit.cover),
+                //       ),
+                //     ),
+                //
+                //     const SizedBox(width: 16),
+                //
+                //     // Right: Details & controls
+                //     Expanded(
+                //       child: Column(
+                //         crossAxisAlignment: CrossAxisAlignment.start,
+                //         children: [
+                //           // Title + close
+                //           Row(
+                //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //             children: [
+                //               Expanded(
+                //                 child: Text(
+                //                   product['name'] ?? '',
+                //                   style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                //                 ),
+                //               ),
+                //               InkWell(
+                //                 onTap: () => Navigator.of(context).pop(),
+                //                 child: const Icon(Icons.close),
+                //               ),
+                //             ],
+                //           ),
+                //           const SizedBox(height: 8),
+                //
+                //           // Price
+                //           Text(
+                //             '৳ ${total.toString()}',
+                //             style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87),
+                //           ),
+                //           const SizedBox(height: 6),
+                //           Text('Total: ৳ ${ (total * qty).toString() }', style: const TextStyle(color: Colors.black54)),
+                //
+                //           const SizedBox(height: 12),
+                //
+                //           // Type selection
+                //           Text('Type', style: TextStyle(fontWeight: FontWeight.w600, color: Colors.grey[700])),
+                //           const SizedBox(height: 8),
+                //           Row(
+                //             children: [
+                //               OutlinedButton(
+                //                 onPressed: () => setState(() => type = 'Refill'),
+                //                 style: OutlinedButton.styleFrom(
+                //                   side: BorderSide(color: type == 'Refill' ? Colors.blue : Colors.grey),
+                //                 ),
+                //                 child: Text('Refill', style: TextStyle(color: type == 'Refill' ? Colors.blue : Colors.black)),
+                //               ),
+                //               const SizedBox(width: 8),
+                //               OutlinedButton(
+                //                 onPressed: () => setState(() => type = 'New'),
+                //                 style: OutlinedButton.styleFrom(
+                //                   side: BorderSide(color: type == 'New' ? Colors.blue : Colors.grey),
+                //                 ),
+                //                 child: Text('New  + 2,000 ৳', style: TextStyle(color: type == 'New' ? Colors.blue : Colors.black)),
+                //               ),
+                //             ],
+                //           ),
+                //
+                //           const SizedBox(height: 12),
+                //
+                //           // Quantity selector
+                //           Row(
+                //             children: [
+                //               IconButton(
+                //                 onPressed: () {
+                //                   if (qty > 1) setState(() => qty -= 1);
+                //                 },
+                //                 icon: const Icon(Icons.remove),
+                //               ),
+                //               Container(
+                //                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                //                 decoration: BoxDecoration(border: Border.all(color: Colors.grey.shade300)),
+                //                 child: Text(qty.toString(), style: const TextStyle(fontSize: 16)),
+                //               ),
+                //               IconButton(
+                //                 onPressed: () => setState(() => qty += 1),
+                //                 icon: const Icon(Icons.add),
+                //               ),
+                //             ],
+                //           ),
+                //
+                //           const SizedBox(height: 12),
+                //
+                //           // Actions: Add to Cart / Buy Now
+                //           Row(
+                //             children: [
+                //               Expanded(
+                //                 child: ElevatedButton(
+                //                   style: ElevatedButton.styleFrom(backgroundColor: Colors.grey[700]),
+                //                   onPressed: () {
+                //                     setState(() {
+                //                       // add to cart: track by index (you can extend to store qty & type)
+                //                       this.setState(() => orderedItems.add(index));
+                //                     });
+                //                     Navigator.of(context).pop();
+                //                     ScaffoldMessenger.of(context).showSnackBar(
+                //                       SnackBar(content: Text('Added ${product['name']} x$qty to cart')),
+                //                     );
+                //                   },
+                //                   child: const Text('Add to Cart'),
+                //                 ),
+                //               ),
+                //               const SizedBox(width: 12),
+                //               Expanded(
+                //                 child: ElevatedButton(
+                //                   style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                //                   onPressed: () {
+                //                     Navigator.of(context).pop();
+                //                     // Handle buy now (navigate to checkout or perform action)
+                //                     ScaffoldMessenger.of(context).showSnackBar(
+                //                       SnackBar(content: Text('Buying ${product['name']} x$qty')),
+                //                     );
+                //                   },
+                //                   child: const Text('Buy Now'),
+                //                 ),
+                //               ),
+                //             ],
+                //           ),
+                //
+                //           const SizedBox(height: 8),
+                //           InkWell(
+                //             onTap: () {
+                //               // optional: open full details
+                //               Navigator.of(context).pop();
+                //             },
+                //             child: const Text('View full details →', style: TextStyle(color: Colors.blue)),
+                //           ),
+                //         ],
+                //       ),
+                //     ),
+                //   ],
+                // ),
+
+
+
+
+
+              ),
+            );
+          },
+        );
+      },
+    );
+
+
+
+  }
+
+
+
+
+
 
 
 
@@ -67,6 +420,8 @@ class _BuyLpgScreenState extends State<BuyLpgScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+
 
 
       /// ------------------------------------- AppBar ------------------------------------------------------------------------- ///
@@ -210,17 +565,23 @@ class _BuyLpgScreenState extends State<BuyLpgScreen> {
                                         ),
                                         const SizedBox(height: 12),
 
-                                        // Order Now Button
+                                        // -------------------------------- Order Now Button -------------------------------- //
                                         SizedBox(
                                           height: 36,
                                           child: ElevatedButton(
+
+
                                             onPressed: () {
                                               setState(() {
-                                                if (isOrdered) {
-                                                  orderedItems.remove(index);
-                                                } else {
-                                                  orderedItems.add(index);
-                                                }
+
+                                                _showOrderDialog(product, index);
+
+                                                // if (isOrdered) {
+                                                //   orderedItems.remove(index);
+                                                // } else {
+                                                //   orderedItems.add(index);
+                                                // }
+
                                               });
 
                                               ScaffoldMessenger.of(context)
@@ -234,6 +595,7 @@ class _BuyLpgScreenState extends State<BuyLpgScreen> {
                                                 ),
                                               );
                                             },
+
                                             style: ElevatedButton.styleFrom(
                                               backgroundColor: isOrdered
                                                   ? Colors.green
@@ -243,6 +605,7 @@ class _BuyLpgScreenState extends State<BuyLpgScreen> {
                                                 BorderRadius.circular(8),
                                               ),
                                             ),
+
                                             child: Text(
                                               isOrdered
                                                   ? "Ordered"
@@ -251,6 +614,7 @@ class _BuyLpgScreenState extends State<BuyLpgScreen> {
                                                   fontSize: 14,
                                                   color: Colors.white),
                                             ),
+
                                           ),
                                         ),
                                       ],
