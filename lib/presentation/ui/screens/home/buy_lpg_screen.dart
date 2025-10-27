@@ -6,7 +6,6 @@ import '../../widgets/drawer/custom_drawer.dart';
 import '../../widgets/drawer/custom_drawer_second.dart';
 import '../../widgets/appbar/custom_appbar_second.dart';
 
-
 class BuyLpgScreen extends StatefulWidget {
   const BuyLpgScreen({super.key});
 

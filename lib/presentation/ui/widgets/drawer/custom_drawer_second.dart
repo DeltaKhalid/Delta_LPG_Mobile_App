@@ -1,4 +1,5 @@
 
+import 'package:delta_lpg_product_sale/presentation/ui/screens/registration_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -411,7 +412,8 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 print("Home 1 is Clicked");
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const HomeScreen()),
+                  // MaterialPageRoute(builder: (context) => const HomeScreen()),
+                  MaterialPageRoute(builder: (context) => const RegistrationScreen()),
                 );
               },
             ),
@@ -433,3 +435,6 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
     );
   }
 }
+
+
+
