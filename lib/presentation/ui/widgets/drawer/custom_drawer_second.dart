@@ -16,11 +16,33 @@ import '../../utils/image_assets.dart';
 
 
 class CustomDrawerSecond extends StatefulWidget {
+  const CustomDrawerSecond({super.key});
+
   @override
   State<CustomDrawerSecond> createState() => _CustomDrawerSecondState();
 }
 
 class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
+  void _navigateTo(Widget page, {bool clearStack = false}) {
+    Navigator.of(context).pop();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      final route = PageRouteBuilder(
+        transitionDuration: const Duration(milliseconds: 200),
+        reverseTransitionDuration: const Duration(milliseconds: 170),
+        pageBuilder: (_, __, ___) => page,
+        transitionsBuilder: (_, animation, __, child) {
+          return FadeTransition(opacity: animation, child: child);
+        },
+      );
+      if (clearStack) {
+        Navigator.of(context).pushAndRemoveUntil(route, (route) => false);
+      } else {
+        Navigator.of(context).push(route);
+      }
+    });
+  }
+
 
   ///======================================== LogOut Function ==========================================================///
   Future<bool> _logOutFunctionCall() async {
@@ -248,11 +270,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 ),
               ),
               onTap: () {
-                print("Home 1 is Clicked");
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const HomeScreen()),
-                );
+                _navigateTo(const HomeScreen(), clearStack: true);
               },
             ),
             ///---------------------------------------- Tutorial -----------------------------------------------------------///
@@ -269,11 +287,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
               ),
 
               onTap: () {
-                print("Home 1 is Clicked");
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const TutorialScreen()),
-                );
+                _navigateTo(const TutorialScreen());
               },
             ),
             ///---------------------------------------- FAQ -------------------------------------------------------------///
@@ -289,11 +303,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 ),
               ),
               onTap: () {
-                print("Home 1 is Clicked");
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const FaqScreen()),
-                );
+                _navigateTo(const FaqScreen());
               },
             ),
             ///---------------------------------------- About Us -------------------------------------------------------------///
@@ -309,11 +319,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 ),
               ),
               onTap: () {
-                print("Home 1 is Clicked");
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const AboutUsScreen()),
-                );
+                _navigateTo(const AboutUsScreen());
               },
             ),
             ///---------------------------------------- Safety Guide Line -------------------------------------------------------------///
@@ -329,11 +335,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 ),
               ),
               onTap: () {
-                print("Home 1 is Clicked");
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SafetyGuideScreen()),
-                );
+                _navigateTo(const SafetyGuideScreen());
               },
             ),
             ///---------------------------------------- Return & Refund Policy -------------------------------------------------------------///
@@ -349,11 +351,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 ),
               ),
               onTap: () {
-                print("Home 1 is Clicked");
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ReturnRefundScreen()),
-                );
+                _navigateTo(const ReturnRefundScreen());
               },
             ),
             ///---------------------------------------- Delivery Charge Policy -------------------------------------------------------------///
@@ -369,11 +367,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 ),
               ),
               onTap: () {
-                print("Home 1 is Clicked");
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const DeliveryChargeScreen()),
-                );
+                _navigateTo(const DeliveryChargeScreen());
               },
             ),
             ///---------------------------------------- Contact Us -------------------------------------------------------------///
@@ -389,11 +383,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 ),
               ),
               onTap: () {
-                print("Home 1 is Clicked");
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ContactUsScreen()),
-                );
+                _navigateTo(const ContactUsScreen());
               },
             ),
             ///---------------------------------------- Login -------------------------------------------------------------------///
@@ -409,12 +399,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 ),
               ),
               onTap: () {
-                print("Home 1 is Clicked");
-                Navigator.push(
-                  context,
-                  // MaterialPageRoute(builder: (context) => const HomeScreen()),
-                  MaterialPageRoute(builder: (context) => const RegistrationScreen()),
-                );
+                _navigateTo(const RegistrationScreen());
               },
             ),
 

@@ -7,7 +7,6 @@ import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 import '../../utils/image_assets.dart';
 import '../../widgets/appbar/custom_appbar.dart';
-import '../../widgets/drawer/custom_drawer.dart';
 
 import '../home_dashboard_screen.dart';
 
@@ -119,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 6,
         margin: const EdgeInsets.all(8.0),
         child: SalomonBottomBar(
-          duration: const Duration(seconds: 1),
+          duration: const Duration(milliseconds: 220),
           items: _items,
           currentIndex: _currentIndex,
           onTap: (index) => setState(() {

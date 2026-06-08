@@ -9,6 +9,8 @@ import 'application/app.dart';
 
 void main() {
 
+  WidgetsFlutterBinding.ensureInitialized();
+
   ///--- StatusBar color change (above of toolbar, where show teh time, network, wifi status) ---///
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(

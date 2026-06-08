@@ -1,8 +1,287 @@
+//
+//
+// import 'package:flutter/material.dart';
+//
+// import '../utils/app_colors.dart';
+// import 'login_screen.dart';
+//
+//
+// class RegistrationScreen extends StatefulWidget {
+//   const RegistrationScreen({super.key});
+//
+//   @override
+//   State<RegistrationScreen> createState() => _RegistrationScreenState();
+// }
+//
+// class _RegistrationScreenState extends State<RegistrationScreen> {
+//   final TextEditingController _nameController = TextEditingController();
+//   final TextEditingController _emailController = TextEditingController();
+//   final TextEditingController _passwordController = TextEditingController();
+//
+//   final FocusNode _nameFocus = FocusNode();
+//   final FocusNode _emailFocus = FocusNode();
+//   final FocusNode _passwordFocus = FocusNode();
+//
+//   @override
+//   void dispose() {
+//     _nameController.dispose();
+//     _emailController.dispose();
+//     _passwordController.dispose();
+//     _nameFocus.dispose();
+//     _emailFocus.dispose();
+//     _passwordFocus.dispose();
+//     super.dispose();
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: Colors.white,
+//       resizeToAvoidBottomInset: true,   // ✅ change to true
+//       body: SingleChildScrollView(
+//         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+//         child: Column(
+//           children: [
+//
+//             // ... rest of your widgets
+//
+//               RepaintBoundary(
+//                 child: Container(
+//                   height: 220,
+//                   decoration: const BoxDecoration(
+//                     gradient: LinearGradient(
+//                       colors: [Color(0xFF80CA61), AppColors.primaryColorSecondShad02],
+//                       begin: Alignment.topLeft,
+//                       end: Alignment.bottomRight,
+//                     ),
+//                     borderRadius: BorderRadius.only(
+//                       bottomLeft: Radius.circular(36),
+//                       bottomRight: Radius.circular(36),
+//                     ),
+//                   ),
+//                   child: SafeArea(
+//                     bottom: false,
+//                     child: Padding(
+//                       padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 32),
+//                       child: Column(
+//                         crossAxisAlignment: CrossAxisAlignment.start,
+//                         mainAxisAlignment: MainAxisAlignment.center,
+//                         children: const [
+//                           Text(
+//                             'Sign Up',
+//                             style: TextStyle(
+//                               color: Colors.white,
+//                               fontSize: 30,
+//                               fontWeight: FontWeight.bold,
+//                             ),
+//                           ),
+//                           SizedBox(height: 8),
+//                           Text(
+//                             'Please fill in your details',
+//                             style: TextStyle(
+//                               color: Colors.white70,
+//                               fontSize: 15,
+//                             ),
+//                           ),
+//                         ],
+//                       ),
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               const SizedBox(height: 28),
+//               Padding(
+//                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
+//                 child: Column(
+//                   children: [
+//                     TextFormField(
+//                       controller: _nameController,
+//                       focusNode: _nameFocus,
+//                       textInputAction: TextInputAction.next,
+//                       onFieldSubmitted: (_) => FocusScope.of(context).requestFocus(_emailFocus),
+//                       decoration: InputDecoration(
+//                         labelText: 'USER NAME',
+//                         hintText: 'John Deo',
+//                         border: OutlineInputBorder(
+//                           borderRadius: BorderRadius.circular(8),
+//                         ),
+//                         contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+//                       ),
+//                     ),
+//                     const SizedBox(height: 20),
+//                     TextFormField(
+//                       controller: _emailController,
+//                       focusNode: _emailFocus,
+//                       keyboardType: TextInputType.emailAddress,
+//                       textInputAction: TextInputAction.next,
+//                       onFieldSubmitted: (_) => FocusScope.of(context).requestFocus(_passwordFocus),
+//                       decoration: InputDecoration(
+//                         labelText: 'EMAIL ADDRESS',
+//                         hintText: 'example@gmail.com',
+//                         border: OutlineInputBorder(
+//                           borderRadius: BorderRadius.circular(8),
+//                         ),
+//                         contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+//                       ),
+//                     ),
+//                     const SizedBox(height: 20),
+//                     TextFormField(
+//                       controller: _passwordController,
+//                       focusNode: _passwordFocus,
+//                       obscureText: true,
+//                       textInputAction: TextInputAction.done,
+//                       onFieldSubmitted: (_) => _passwordFocus.unfocus(),
+//                       decoration: InputDecoration(
+//                         labelText: 'PASSWORD',
+//                         hintText: '********',
+//                         border: OutlineInputBorder(
+//                           borderRadius: BorderRadius.circular(8),
+//                         ),
+//                         contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+//                       ),
+//                     ),
+//                     const SizedBox(height: 30),
+//                     SizedBox(
+//                       width: double.infinity,
+//                       height: 48,
+//                       child: ElevatedButton(
+//                         style: ElevatedButton.styleFrom(
+//                           backgroundColor: AppColors.textColorGreen,
+//                           shape: RoundedRectangleBorder(
+//                             borderRadius: BorderRadius.circular(25),
+//                           ),
+//                         ),
+//                         onPressed: () {},
+//                         child: const Text(
+//                           'Sign Up',
+//                           style: TextStyle(fontSize: 16, color: Colors.white),
+//                         ),
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//               const SizedBox(height: 30),
+//               Row(
+//                 mainAxisAlignment: MainAxisAlignment.center,
+//                 children: [
+//                   const Text(
+//                     'Already have an account? ',
+//                     style: TextStyle(color: Colors.black54),
+//                   ),
+//                   GestureDetector(
+//                     onTap: () {
+//                       Navigator.push(
+//                         context,
+//                         MaterialPageRoute(builder: (context) => const LoginScreen()),
+//                       );
+//                     },
+//                     child: const Text(
+//                       'Log In',
+//                       style: TextStyle(
+//                         color: AppColors.textColorGreen,
+//                         fontWeight: FontWeight.bold,
+//                       ),
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//               const SizedBox(height: 30),
+//             ],
+//
+//
+//
+//
+//
+//         ),
+//       ),
+//     );
+//   }
+//
+//
+//
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 import 'package:flutter/material.dart';
 import '../utils/app_colors.dart';
 import 'login_screen.dart';
+
+// ✅ Extracted header as a separate const widget
+class _RegistrationHeader extends StatelessWidget {
+  const _RegistrationHeader();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 220,
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [Color(0xFF80CA61), AppColors.primaryColorSecondShad02],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(36),
+          bottomRight: Radius.circular(36),
+        ),
+      ),
+      child: SafeArea(
+        bottom: false,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 32),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text(
+                'Sign Up',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 8),
+              Text(
+                'Please fill in your details',
+                style: TextStyle(
+                  color: Colors.white70,
+                  fontSize: 15,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
 
 
 class RegistrationScreen extends StatefulWidget {
@@ -13,113 +292,104 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  final FocusNode _nameFocus = FocusNode();
+  final FocusNode _emailFocus = FocusNode();
+  final FocusNode _passwordFocus = FocusNode();
+
+  // ✅ Static const header — built once, never rebuilt
+  static const _header = RepaintBoundary(
+    child: _RegistrationHeader(),
+  );
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _nameFocus.dispose();
+    _emailFocus.dispose();
+    _passwordFocus.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       backgroundColor: Colors.white,
+      resizeToAvoidBottomInset: true, // ✅ Let Flutter handle keyboard inset natively
       body: SingleChildScrollView(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         child: Column(
           children: [
-            // 🔺 Red Curved Header
-            Stack(
-              children: [
-                ClipPath(
-                  clipper: HeaderClipper(),
-                  child: Container(
-                    height: 250,
-                    decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [Color(0xFF80CA61), Color(0xFF03b55f)],
-                        // colors: AppColors.primaryColorSecondShad02,
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                      ),
-                    ),
-                  ),
-                ),
-                const Positioned(
-                  top: 100,
-                  left: 25,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Sign Up",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(height: 5),
-                      Text(
-                        "Please fill in your details",
-                        style: TextStyle(
-                          color: Colors.white70,
-                          fontSize: 15,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-
-            const SizedBox(height: 30),
-
-            // 🔹 Input Fields
+            // ✅ Static header — no rebuild on keyboard open
+            _header,
+            const SizedBox(height: 28),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: Column(
                 children: [
-                  TextField(
+                  TextFormField(
+                    controller: _nameController,
+                    focusNode: _nameFocus,
+                    textInputAction: TextInputAction.next,
+                    onFieldSubmitted: (_) =>
+                        FocusScope.of(context).requestFocus(_emailFocus),
                     decoration: InputDecoration(
                       labelText: 'USER NAME',
                       hintText: 'John Deo',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      contentPadding:
-                      const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                      contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 10),
                     ),
                   ),
                   const SizedBox(height: 20),
-                  TextField(
+                  TextFormField(
+                    controller: _emailController,
+                    focusNode: _emailFocus,
+                    keyboardType: TextInputType.emailAddress,
+                    textInputAction: TextInputAction.next,
+                    onFieldSubmitted: (_) =>
+                        FocusScope.of(context).requestFocus(_passwordFocus),
                     decoration: InputDecoration(
                       labelText: 'EMAIL ADDRESS',
                       hintText: 'example@gmail.com',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      contentPadding:
-                      const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                      contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 10),
                     ),
                   ),
                   const SizedBox(height: 20),
-                  TextField(
+                  TextFormField(
+                    controller: _passwordController,
+                    focusNode: _passwordFocus,
                     obscureText: true,
+                    textInputAction: TextInputAction.done,
+                    onFieldSubmitted: (_) => _passwordFocus.unfocus(),
                     decoration: InputDecoration(
                       labelText: 'PASSWORD',
                       hintText: '********',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      contentPadding:
-                      const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                      contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 10),
                     ),
                   ),
                   const SizedBox(height: 30),
-
-                  // 🔘 Sign Up Button
                   SizedBox(
                     width: double.infinity,
                     height: 48,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        // backgroundColor: Colors.redAccent,
-                        backgroundColor: Color(0xFF4CAF50),
+                        backgroundColor: AppColors.textColorGreen,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25),
                         ),
@@ -134,75 +404,36 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 ],
               ),
             ),
-
             const SizedBox(height: 30),
-
-            // 🔻 Bottom Text
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  "Already have an account? ",
+                  'Already have an account? ',
                   style: TextStyle(color: Colors.black54),
                 ),
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const LoginScreen()),
+                      MaterialPageRoute(
+                          builder: (context) => const LoginScreen()),
                     );
                   },
-                  child: Text(
-                    "Log In",
+                  child: const Text(
+                    'Log In',
                     style: TextStyle(
-                      // color: Colors.redAccent,
-                      color: Color(0xFF4CAF50),
+                      color: AppColors.textColorGreen,
                       fontWeight: FontWeight.bold,
                     ),
-
-
-
                   ),
-
                 ),
               ],
             ),
-
             const SizedBox(height: 30),
           ],
         ),
       ),
     );
-
-
-
-
-    // return Scaffold(
-    //   body: SafeArea(
-    //     child: Center(
-    //       child: Text('This is Registration Screen.'),
-    //     ),
-    //   ),
-    // );
-
-
   }
-}
-
-
-// Custom Clipper for Curved Header
-class HeaderClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    Path path = Path();
-    path.lineTo(0, size.height - 80);
-    path.quadraticBezierTo(
-        size.width / 2, size.height, size.width, size.height - 100);
-    path.lineTo(size.width, 0);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
