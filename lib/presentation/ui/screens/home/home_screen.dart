@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
+import '../../home_dashboard_screen.dart';
 import '../../utils/image_assets.dart';
 import '../../widgets/appbar/custom_appbar.dart';
 
-import '../home_dashboard_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

@@ -19,6 +19,7 @@ class ImageAssets {
 
   ///---------- Home Dashboard Screen Icons ---///
   static const String iconHomeSVG = '$_IMAGE_PATH/home_icon.svg';
+  static const String iconHome02SVG = '$_IMAGE_PATH/home_icon_2.svg';
   static const String iconAddToFavoriteSVG = '$_IMAGE_PATH/add_to_favorites.svg';
   static const String iconShoppingCartSVG = '$_IMAGE_PATH/shopping_cart_icn.svg';
 
