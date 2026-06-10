@@ -23,6 +23,15 @@ class ImageAssets {
   static const String iconHome03SVG = '$_IMAGE_PATH/house_icon_03.svg';
   static const String iconAddToFavoriteSVG = '$_IMAGE_PATH/add_to_favorites.svg';
   static const String iconShoppingCartSVG = '$_IMAGE_PATH/shopping_cart_icn.svg';
+  static const String iconAttendanceSVG = '$_IMAGE_PATH/attendance_icon_05.svg';
+
+  //static const String iconAttendance06SVG = '$_IMAGE_PATH/attendance_icon_06.svg';
+  static const String iconAttendance06SVG = '$_IMAGE_PATH/attendance_icon_04.svg';
+  static const String iconAttendance07SVG = '$_IMAGE_PATH/attendance_icon_07.svg';
+
+  static const String iconCollectionSVG = '$_IMAGE_PATH/collection_icon.svg';
+  static const String iconOrderSVG = '$_IMAGE_PATH/order_icon.svg';
+  static const String iconLeaveSVG = '$_IMAGE_PATH/leave_icon_02.svg';
 
 
   ///---------- Drawer icons ----------///

@@ -48,6 +48,7 @@ class AppColors {
   static const Color primaryColorSecondShad01 = Color(0xFF3E7C0E);
 
   static const Color primaryColorSecondShad02 = Color(0xFF03b55f); // *** Main Color of This App . Code : 03b55f -> button color, icon color
+                                                                   //  *** new icon and text Color Code : #62748E -> text color of home page and icon color of home page
 
 
 

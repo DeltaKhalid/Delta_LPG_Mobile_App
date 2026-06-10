@@ -1,5 +1,8 @@
+import 'package:delta_lpg_product_sale/presentation/ui/utils/image_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+
 
 class HomeDashboardScreen extends StatefulWidget {
   const HomeDashboardScreen({super.key});
@@ -11,24 +14,41 @@ class HomeDashboardScreen extends StatefulWidget {
 class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
   static const List<_DashboardTileData> _tiles = [
     _DashboardTileData(
-      iconAsset: 'assets/images/attendance.svg',
+
+      iconAsset: ImageAssets.iconAttendance07SVG,
+      iconSize: 45,   // ← bump up until it visually matches
       title: 'Attendance',
-      subtitle: 'x5 devices',
+      subtitle: '',
+
+
+      // iconAsset: ImageAssets.iconAttendance06SVG,
+      //
+      // // iconAsset: 'assets/images/attendance_icon.svg',
+      // title: 'Attendance',
+      // subtitle: '',
     ),
     _DashboardTileData(
-      icon: Icons.ac_unit,
+      // iconAsset: 'assets/images/attendance_icon_03.svg',
+      iconAsset: ImageAssets.iconLeaveSVG,
+      // icon: Icons.ac_unit,
       title: 'Leave',
-      subtitle: 'x3 devices',
+      subtitle: '',
     ),
     _DashboardTileData(
-      icon: Icons.power_outlined,
+      // icon: Icons.power_outlined,
+      //iconAsset: 'assets/images/attendance_icon_04.svg',
+      iconAsset: ImageAssets.iconOrderSVG,
+
+
       title: 'Order',
-      subtitle: 'x5 devices',
+      subtitle: '',
     ),
     _DashboardTileData(
-      icon: Icons.videocam_outlined,
+      iconAsset: ImageAssets.iconCollectionSVG,
+      // icon: Icons.videocam_outlined,
+
       title: 'Collection',
-      subtitle: 'x3 devices',
+      subtitle: '',
     ),
     _DashboardTileData(
       icon: Icons.water_drop_outlined,
@@ -86,16 +106,19 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
   }
 }
 
+/// --------------- Data model for dashboard tiles, containing icon, title, and subtitle information ------------------ ///
 class _DashboardTileData {
   const _DashboardTileData({
     this.icon,
     this.iconAsset,
+    this.iconSize = 38,         // ← add this
     required this.title,
     required this.subtitle,
   }) : assert(icon != null || iconAsset != null, 'Provide icon or iconAsset');
 
   final IconData? icon;
   final String? iconAsset;
+  final double iconSize;        // ← add this
   final String title;
   final String subtitle;
 }
@@ -112,8 +135,28 @@ class _DashboardTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+
+
       decoration: BoxDecoration(
         color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: const Radius.circular(16),
+          topRight: const Radius.circular(16),     // ← adjust per your grid layout
+          bottomLeft: Radius.circular(16),
+          bottomRight: const Radius.circular(16),
+        ),
+
+
+
+        // decoration: BoxDecoration(
+        //   color: Colors.white,
+        //   borderRadius: BorderRadius.only(
+        //     topLeft: isLeftColumn ? const Radius.circular(8) : Radius.zero,
+        //     topRight: const Radius.circular(8),     // ← adjust per your grid layout
+        //     bottomLeft: isLeftColumn ? const Radius.circular(8) : Radius.zero,
+        //     bottomRight: const Radius.circular(8),
+        //   ),
+
         border: Border(
           left: isLeftColumn
               ? const BorderSide(color: Color(0xFFE2E2E2), width: 1)
@@ -123,36 +166,75 @@ class _DashboardTile extends StatelessWidget {
           bottom: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
         ),
       ),
+
+
+      // decoration: BoxDecoration(
+      //   color: Colors.white,
+      //   border: Border(
+      //     left: isLeftColumn
+      //         ? const BorderSide(color: Color(0xFFE2E2E2), width: 1)
+      //         : BorderSide.none,
+      //     right: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
+      //     top: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
+      //     bottom: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
+      //   ),
+      // ),
+
       child: InkWell(
         onTap: () {},
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              if (data.iconAsset != null)
+
+            if (data.iconAsset != null)
                 SvgPicture.asset(
-                  data.iconAsset!,
-                  width: 35,
-                  height: 35,
-                  // colorFilter: const ColorFilter.mode(
-                  //   Color(0xFF111111),
-                  //   BlendMode.srcIn,
-                  // ),
-                )
+                data.iconAsset!,
+                width: data.iconSize,
+                height: data.iconSize,
+                fit: BoxFit.contain,
+              )
+
+              // if (data.iconAsset != null)
+              //   SizedBox(
+              //     width: 40,
+              //     height: 40,
+              //     child: SvgPicture.asset(
+              //       data.iconAsset!,
+              //       width: 40,
+              //       height: 40,
+              //       fit: BoxFit.contain,
+              //     ),
+              //   )
+
+
+              // if (data.iconAsset != null)
+              //   SvgPicture.asset(
+              //     data.iconAsset!,
+              //     width: 35,
+              //     height: 35,
+              //
+              //     // colorFilter: const ColorFilter.mode(
+              //     //   Color(0xFF111111),
+              //     //   BlendMode.srcIn,
+              //     // ),
+              //   )
+
+
               else
                 Icon(
                   data.icon,
                   size: 35,
-                  color: const Color(0xFF111111),
+                  color: const Color(0xFF62748E),
                 ),
               const SizedBox(height: 12),
               Text(
                 data.title,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  fontSize: 15,
+                  fontSize: 14,
                   fontWeight: FontWeight.w700,
-                  color: Color(0xFF222222),
+                  color: Color(0xFF62748E),
                   letterSpacing: 0.3,
                 ),
               ),
@@ -177,6 +259,149 @@ class _DashboardTile extends StatelessWidget {
 }
 
 
+/// --------------- Data model for dashboard tiles, containing icon, title, and subtitle information ------------------ ///
+// class _DashboardTileData {
+//   const _DashboardTileData({
+//     this.icon,
+//     this.iconAsset,
+//     required this.title,
+//     required this.subtitle,
+//   }) : assert(icon != null || iconAsset != null, 'Provide icon or iconAsset');
+//
+//   final IconData? icon;
+//   final String? iconAsset;
+//   final String title;
+//   final String subtitle;
+// }
+//
+// class _DashboardTile extends StatelessWidget {
+//   const _DashboardTile({
+//     required this.data,
+//     required this.isLeftColumn,
+//   });
+//
+//   final _DashboardTileData data;
+//   final bool isLeftColumn;
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//
+//
+//         decoration: BoxDecoration(
+//           color: Colors.white,
+//           borderRadius: BorderRadius.only(
+//             topLeft: const Radius.circular(16),
+//             topRight: const Radius.circular(16),     // ← adjust per your grid layout
+//             bottomLeft: Radius.circular(16),
+//             bottomRight: const Radius.circular(16),
+//           ),
+//
+//
+//
+//       // decoration: BoxDecoration(
+//       //   color: Colors.white,
+//       //   borderRadius: BorderRadius.only(
+//       //     topLeft: isLeftColumn ? const Radius.circular(8) : Radius.zero,
+//       //     topRight: const Radius.circular(8),     // ← adjust per your grid layout
+//       //     bottomLeft: isLeftColumn ? const Radius.circular(8) : Radius.zero,
+//       //     bottomRight: const Radius.circular(8),
+//       //   ),
+//
+//         border: Border(
+//           left: isLeftColumn
+//               ? const BorderSide(color: Color(0xFFE2E2E2), width: 1)
+//               : BorderSide.none,
+//           right: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
+//           top: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
+//           bottom: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
+//         ),
+//       ),
+//
+//
+//       // decoration: BoxDecoration(
+//       //   color: Colors.white,
+//       //   border: Border(
+//       //     left: isLeftColumn
+//       //         ? const BorderSide(color: Color(0xFFE2E2E2), width: 1)
+//       //         : BorderSide.none,
+//       //     right: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
+//       //     top: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
+//       //     bottom: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
+//       //   ),
+//       // ),
+//
+//       child: InkWell(
+//         onTap: () {},
+//         child: Center(
+//           child: Column(
+//             mainAxisSize: MainAxisSize.min,
+//             children: [
+//
+//               if (data.iconAsset != null)
+//                 SizedBox(
+//                   width: 40,
+//                   height: 40,
+//                   child: SvgPicture.asset(
+//                     data.iconAsset!,
+//                     width: 40,
+//                     height: 40,
+//                     fit: BoxFit.contain,
+//                   ),
+//                 )
+//
+//
+//               // if (data.iconAsset != null)
+//               //   SvgPicture.asset(
+//               //     data.iconAsset!,
+//               //     width: 35,
+//               //     height: 35,
+//               //
+//               //     // colorFilter: const ColorFilter.mode(
+//               //     //   Color(0xFF111111),
+//               //     //   BlendMode.srcIn,
+//               //     // ),
+//               //   )
+//
+//
+//               else
+//                 Icon(
+//                   data.icon,
+//                   size: 35,
+//                   color: const Color(0xFF62748E),
+//                 ),
+//               const SizedBox(height: 12),
+//               Text(
+//                 data.title,
+//                 textAlign: TextAlign.center,
+//                 style: const TextStyle(
+//                   fontSize: 14,
+//                   fontWeight: FontWeight.w700,
+//                   color: Color(0xFF62748E),
+//                   letterSpacing: 0.3,
+//                 ),
+//               ),
+//               if (data.subtitle.isNotEmpty) ...[
+//                 const SizedBox(height: 4),
+//                 Text(
+//                   data.subtitle,
+//                   textAlign: TextAlign.center,
+//                   style: const TextStyle(
+//                     fontSize: 12,
+//                     fontWeight: FontWeight.w400,
+//                     color: Color(0xFF9A9A9A),
+//                   ),
+//                 ),
+//               ],
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+/// --------------- Profile card widget displaying user information and attendance times ------------------ ///
 class _ProfileCard extends StatelessWidget {
   const _ProfileCard();
 
@@ -259,9 +484,7 @@ class _ProfileCard extends StatelessWidget {
               ),
             ),
 
-
-
-            // Date badge
+            // Attendance Time
             Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -293,7 +516,6 @@ class _ProfileCard extends StatelessWidget {
 
                 // End Time
                 Container(
-
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
                     color: const Color(0xFFF0F4FF),
@@ -318,59 +540,6 @@ class _ProfileCard extends StatelessWidget {
               ],
             ),
 
-
-
-
-
-
-
-
-
-            // Container(
-            //   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-            //   decoration: BoxDecoration(
-            //     color: const Color(0xFFF0F4FF),
-            //     borderRadius: BorderRadius.circular(8),
-            //   ),
-            //   child: Column(
-            //     mainAxisSize: MainAxisSize.min,
-            //     crossAxisAlignment: CrossAxisAlignment.start,
-            //     children: [
-            //       Row(
-            //         mainAxisSize: MainAxisSize.min,
-            //         children: const [
-            //           SizedBox(width: 5),
-            //           Text(
-            //             'Start : 09:00',
-            //             style: TextStyle(
-            //               fontSize: 11,
-            //               fontWeight: FontWeight.w600,
-            //               color: Color(0xFF5B7FA6),
-            //             ),
-            //           ),
-            //         ],
-            //       ),
-            //
-            //       Row(
-            //         mainAxisSize: MainAxisSize.min,
-            //         children: const [
-            //           SizedBox(width: 5),
-            //           Text(
-            //             'End : 18:00',
-            //             style: TextStyle(
-            //               fontSize: 11,
-            //               fontWeight: FontWeight.w600,
-            //               color: Color(0xFF5B7FA6),
-            //             ),
-            //           ),
-            //         ],
-            //       ),
-            //     ],
-            //   ),
-            // ),
-
-
-
           ],
         ),
       ),
@@ -378,161 +547,4 @@ class _ProfileCard extends StatelessWidget {
   }
 }
 
-
-
-
-
-// class _ProfileCard extends StatelessWidget {
-//   const _ProfileCard();
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Card(
-//       margin: const EdgeInsets.all(12),
-//       elevation: 2,
-//       shape: RoundedRectangleBorder(
-//         borderRadius: BorderRadius.circular(12),
-//       ),
-//       child: Container(
-//         decoration: BoxDecoration(
-//           gradient: LinearGradient(
-//             colors: [
-//               const Color(0xFF00AA55),
-//               const Color(0xFF00CC77),
-//             ],
-//             begin: Alignment.topLeft,
-//             end: Alignment.bottomRight,
-//           ),
-//           borderRadius: BorderRadius.circular(12),
-//         ),
-//         padding: const EdgeInsets.all(16),
-//         child: Row(
-//           children: [
-//             CircleAvatar(
-//               radius: 32,
-//               backgroundColor: Colors.white.withValues(alpha: 0.3),
-//               child: const Icon(
-//                 Icons.person,
-//                 size: 40,
-//                 color: Colors.white,
-//               ),
-//             ),
-//             const SizedBox(width: 16),
-//             Expanded(
-//               child: Column(
-//                 crossAxisAlignment: CrossAxisAlignment.start,
-//                 children: [
-//                   const Text(
-//                     'Kamal Hossain',
-//                     style: TextStyle(
-//                       fontSize: 18,
-//                       fontWeight: FontWeight.w700,
-//                       color: Colors.white,
-//                     ),
-//                   ),
-//                   const SizedBox(height: 4),
-//                   Text(
-//                     'Senier Executive',
-//                     style: TextStyle(
-//                       fontSize: 12,
-//                       fontWeight: FontWeight.w400,
-//                       color: Colors.white.withValues(alpha: 0.9),
-//                     ),
-//                   ),
-//                 ],
-//               ),
-//             ),
-//             IconButton(
-//               onPressed: () {},
-//               icon: const Icon(
-//                 Icons.close,
-//                 color: Colors.white,
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-
-
-
-
-
-
-// class _ProfileCard extends StatelessWidget {
-//   const _ProfileCard();
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Card(
-//       margin: const EdgeInsets.all(12),
-//       elevation: 2,
-//       shape: RoundedRectangleBorder(
-//         borderRadius: BorderRadius.circular(12),
-//       ),
-//       child: Container(
-//         decoration: BoxDecoration(
-//           gradient: LinearGradient(
-//             colors: [
-//               const Color(0xFF00AA55),
-//               const Color(0xFF00CC77),
-//             ],
-//             begin: Alignment.topLeft,
-//             end: Alignment.bottomRight,
-//           ),
-//           borderRadius: BorderRadius.circular(12),
-//         ),
-//         padding: const EdgeInsets.all(16),
-//         child: Row(
-//           children: [
-//             CircleAvatar(
-//               radius: 32,
-//               backgroundColor: Colors.white.withValues(alpha: 0.3),
-//               child: const Icon(
-//                 Icons.person,
-//                 size: 40,
-//                 color: Colors.white,
-//               ),
-//             ),
-//             const SizedBox(width: 16),
-//             Expanded(
-//               child: Column(
-//                 crossAxisAlignment: CrossAxisAlignment.start,
-//                 children: [
-//                   const Text(
-//                     'Elvis Obi',
-//                     style: TextStyle(
-//                       fontSize: 18,
-//                       fontWeight: FontWeight.w700,
-//                       color: Colors.white,
-//                     ),
-//                   ),
-//                   const SizedBox(height: 4),
-//                   Text(
-//                     'Creative Writer',
-//                     style: TextStyle(
-//                       fontSize: 12,
-//                       fontWeight: FontWeight.w400,
-//                       color: Colors.white.withValues(alpha: 0.9),
-//                     ),
-//                   ),
-//                 ],
-//               ),
-//             ),
-//             IconButton(
-//               onPressed: () {},
-//               icon: const Icon(
-//                 Icons.close,
-//                 color: Colors.white,
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
 
