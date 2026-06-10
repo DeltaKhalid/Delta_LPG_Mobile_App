@@ -176,6 +176,7 @@ class _DashboardTile extends StatelessWidget {
   }
 }
 
+
 class _ProfileCard extends StatelessWidget {
   const _ProfileCard();
 
@@ -185,70 +186,279 @@ class _ProfileCard extends StatelessWidget {
       margin: const EdgeInsets.all(12),
       elevation: 2,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(16),
       ),
-      child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              const Color(0xFF00AA55),
-              const Color(0xFF00CC77),
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-          borderRadius: BorderRadius.circular(12),
-        ),
-        padding: const EdgeInsets.all(16),
+      color: Colors.white,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         child: Row(
           children: [
-            CircleAvatar(
-              radius: 32,
-              backgroundColor: Colors.white.withValues(alpha: 0.3),
-              child: const Icon(
-                Icons.person,
-                size: 40,
-                color: Colors.white,
-              ),
+            // Avatar with online indicator
+            Stack(
+              children: [
+                CircleAvatar(
+                  radius: 28,
+                  backgroundColor: const Color(0xFF5B7FA6),
+                  child: const Text(
+                    'M',
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 2,
+                  right: 2,
+                  child: Container(
+                    width: 10,
+                    height: 10,
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF4CAF50),
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.white, width: 1.5),
+                    ),
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(width: 16),
+
+            const SizedBox(width: 14),
+
+            // Name + User ID
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Kamal Hossain',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white,
+                  RichText(
+                    text: const TextSpan(
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black87,
+                      ),
+                      children: [
+                        TextSpan(text: ''),
+                        TextSpan(
+                          text: 'Md.Shohel Miah',
+                          style: TextStyle(fontWeight: FontWeight.w700),
+                        ),
+                      ],
                     ),
                   ),
                   const SizedBox(height: 4),
-                  Text(
-                    'Senier Executive',
+                  const Text(
+                    'USER  ID: 000001',
                     style: TextStyle(
                       fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.white.withValues(alpha: 0.9),
+                      color: Colors.black45,
+                      letterSpacing: 0.4,
                     ),
                   ),
                 ],
               ),
             ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.close,
-                color: Colors.white,
-              ),
+
+
+
+            // Date badge
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Start Time
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFF0F4FF),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: const [
+                      Icon(Icons.access_time, size: 13, color: Color(0xFF5B7FA6)),
+                      SizedBox(width: 5),
+                      Text(
+                        'Start : 09:00 AM',
+                        style: TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF5B7FA6),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                const SizedBox(height: 12),
+
+                // End Time
+                Container(
+
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFF0F4FF),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: const [
+                      Icon(Icons.access_time_filled, size: 13, color: Color(0xFF5B7FA6)),
+                      SizedBox(width: 5),
+                      Text(
+                        'End   : 18:00 PM',
+                        style: TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF5B7FA6),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
+
+
+
+
+
+
+
+
+
+            // Container(
+            //   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+            //   decoration: BoxDecoration(
+            //     color: const Color(0xFFF0F4FF),
+            //     borderRadius: BorderRadius.circular(8),
+            //   ),
+            //   child: Column(
+            //     mainAxisSize: MainAxisSize.min,
+            //     crossAxisAlignment: CrossAxisAlignment.start,
+            //     children: [
+            //       Row(
+            //         mainAxisSize: MainAxisSize.min,
+            //         children: const [
+            //           SizedBox(width: 5),
+            //           Text(
+            //             'Start : 09:00',
+            //             style: TextStyle(
+            //               fontSize: 11,
+            //               fontWeight: FontWeight.w600,
+            //               color: Color(0xFF5B7FA6),
+            //             ),
+            //           ),
+            //         ],
+            //       ),
+            //
+            //       Row(
+            //         mainAxisSize: MainAxisSize.min,
+            //         children: const [
+            //           SizedBox(width: 5),
+            //           Text(
+            //             'End : 18:00',
+            //             style: TextStyle(
+            //               fontSize: 11,
+            //               fontWeight: FontWeight.w600,
+            //               color: Color(0xFF5B7FA6),
+            //             ),
+            //           ),
+            //         ],
+            //       ),
+            //     ],
+            //   ),
+            // ),
+
+
+
           ],
         ),
       ),
     );
   }
 }
+
+
+
+
+
+// class _ProfileCard extends StatelessWidget {
+//   const _ProfileCard();
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Card(
+//       margin: const EdgeInsets.all(12),
+//       elevation: 2,
+//       shape: RoundedRectangleBorder(
+//         borderRadius: BorderRadius.circular(12),
+//       ),
+//       child: Container(
+//         decoration: BoxDecoration(
+//           gradient: LinearGradient(
+//             colors: [
+//               const Color(0xFF00AA55),
+//               const Color(0xFF00CC77),
+//             ],
+//             begin: Alignment.topLeft,
+//             end: Alignment.bottomRight,
+//           ),
+//           borderRadius: BorderRadius.circular(12),
+//         ),
+//         padding: const EdgeInsets.all(16),
+//         child: Row(
+//           children: [
+//             CircleAvatar(
+//               radius: 32,
+//               backgroundColor: Colors.white.withValues(alpha: 0.3),
+//               child: const Icon(
+//                 Icons.person,
+//                 size: 40,
+//                 color: Colors.white,
+//               ),
+//             ),
+//             const SizedBox(width: 16),
+//             Expanded(
+//               child: Column(
+//                 crossAxisAlignment: CrossAxisAlignment.start,
+//                 children: [
+//                   const Text(
+//                     'Kamal Hossain',
+//                     style: TextStyle(
+//                       fontSize: 18,
+//                       fontWeight: FontWeight.w700,
+//                       color: Colors.white,
+//                     ),
+//                   ),
+//                   const SizedBox(height: 4),
+//                   Text(
+//                     'Senier Executive',
+//                     style: TextStyle(
+//                       fontSize: 12,
+//                       fontWeight: FontWeight.w400,
+//                       color: Colors.white.withValues(alpha: 0.9),
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//             IconButton(
+//               onPressed: () {},
+//               icon: const Icon(
+//                 Icons.close,
+//                 color: Colors.white,
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+
+
+
 
 
 

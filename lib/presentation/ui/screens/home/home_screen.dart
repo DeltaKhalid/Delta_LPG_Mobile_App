@@ -50,7 +50,8 @@ class _HomeScreenState extends State<HomeScreen> {
     /// Favorite
     SalomonBottomBarItem(
       //icon: const Icon(Icons.search),
-      icon: SvgPicture.asset(ImageAssets.iconAddToFavoriteSVG, width: 27,),
+      //icon: SvgPicture.asset(ImageAssets.iconAddToFavoriteSVG, width: 27,),
+      icon: SvgPicture.asset(ImageAssets.iconHome03SVG, width: 27,),
       title: const Text("Favorite"),
       //selectedColor: Colors.orange,
       selectedColor: Colors.teal,
@@ -66,12 +67,12 @@ class _HomeScreenState extends State<HomeScreen> {
     ),
 
     /// Knowledge
-    // SalomonBottomBarItem(
-    //   //icon: const Icon(Icons.person),
-    //   icon: SvgPicture.asset(ImageAssets.iconMenu3SVG, width: 23,),
-    //   title: const Text("Knowledge"),
-    //   selectedColor: Colors.teal,
-    // ),
+    SalomonBottomBarItem(
+      //icon: const Icon(Icons.person),
+      icon: SvgPicture.asset(ImageAssets.iconAddToFavoriteSVG, width: 23,),
+      title: const Text("Knowledge"),
+      selectedColor: Colors.teal,
+    ),
 
   ];
 
