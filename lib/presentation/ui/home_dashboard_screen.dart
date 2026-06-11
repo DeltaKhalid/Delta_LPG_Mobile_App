@@ -80,25 +80,67 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
         child: Column(
           children: [
             _ProfileCard(),
+
             Expanded(
-              child: GridView.builder(
-                padding: const EdgeInsets.all(12),
-                itemCount: _tiles.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 0,
-                  mainAxisSpacing: 0,
-                  childAspectRatio: 1.02,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: GridView.builder(
+                  itemCount: _tiles.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 1.0,
+                    crossAxisSpacing: 0,
+                    mainAxisSpacing: 0,
+                  ),
+                  itemBuilder: (context, index) => _DashboardTile(
+                    data: _tiles[index],
+                    index: index,
+                    totalCount: _tiles.length,
+                  ),
                 ),
-                itemBuilder: (context, index) {
-                  final tile = _tiles[index];
-                  return _DashboardTile(
-                    data: tile,
-                    isLeftColumn: index.isEven,
-                  );
-                },
               ),
             ),
+
+            // Expanded(
+            //
+            //   child: GridView.builder(
+            //     shrinkWrap: true,
+            //     physics: const NeverScrollableScrollPhysics(),
+            //     itemCount: _tiles.length,
+            //     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            //       crossAxisCount: 2,
+            //       childAspectRatio: 1.0,
+            //       crossAxisSpacing: 0,
+            //       mainAxisSpacing: 0,
+            //     ),
+            //     itemBuilder: (context, index) => _DashboardTile(
+            //       data: _tiles[index],
+            //       index: index,
+            //       totalCount: _tiles.length,
+            //     ),
+            //   ),
+            //
+            //   // child: GridView.builder(
+            //   //   padding: const EdgeInsets.all(12),
+            //   //   itemCount: _tiles.length,
+            //   //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            //   //     crossAxisCount: 2,
+            //   //     crossAxisSpacing: 0,
+            //   //     mainAxisSpacing: 0,
+            //   //     childAspectRatio: 1.02,
+            //   //   ),
+            //   //   itemBuilder: (context, index) {
+            //   //     final tile = _tiles[index];
+            //   //     return _DashboardTile(
+            //   //       data: tile,
+            //   //       isLeftColumn: index.isEven,
+            //   //     );
+            //   //   },
+            //   // ),
+            //
+            //
+            // ),
+
           ],
         ),
       ),
@@ -111,14 +153,14 @@ class _DashboardTileData {
   const _DashboardTileData({
     this.icon,
     this.iconAsset,
-    this.iconSize = 38,         // ← add this
+    this.iconSize = 38,
     required this.title,
     required this.subtitle,
   }) : assert(icon != null || iconAsset != null, 'Provide icon or iconAsset');
 
   final IconData? icon;
   final String? iconAsset;
-  final double iconSize;        // ← add this
+  final double iconSize;
   final String title;
   final String subtitle;
 }
@@ -126,101 +168,58 @@ class _DashboardTileData {
 class _DashboardTile extends StatelessWidget {
   const _DashboardTile({
     required this.data,
-    required this.isLeftColumn,
+    required this.index,
+    required this.totalCount,
   });
 
   final _DashboardTileData data;
-  final bool isLeftColumn;
+  final int index;
+  final int totalCount;
+
+  BorderRadius _borderRadius() {
+    const r = Radius.circular(16);
+    final isFirstRow = index < 2;
+    final isLastRow  = index >= totalCount - 2;
+    final isLeft     = index.isEven;
+    final isRight    = index.isOdd;
+
+    return BorderRadius.only(
+      topLeft:     (isFirstRow && isLeft)  ? r : Radius.zero,
+      topRight:    (isFirstRow && isRight) ? r : Radius.zero,
+      bottomLeft:  (isLastRow  && isLeft)  ? r : Radius.zero,
+      bottomRight: (isLastRow  && isRight) ? r : Radius.zero,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-
-
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.only(
-          topLeft: const Radius.circular(16),
-          topRight: const Radius.circular(16),     // ← adjust per your grid layout
-          bottomLeft: Radius.circular(16),
-          bottomRight: const Radius.circular(16),
-        ),
-
-
-
-        // decoration: BoxDecoration(
-        //   color: Colors.white,
-        //   borderRadius: BorderRadius.only(
-        //     topLeft: isLeftColumn ? const Radius.circular(8) : Radius.zero,
-        //     topRight: const Radius.circular(8),     // ← adjust per your grid layout
-        //     bottomLeft: isLeftColumn ? const Radius.circular(8) : Radius.zero,
-        //     bottomRight: const Radius.circular(8),
-        //   ),
-
+        borderRadius: _borderRadius(),
         border: Border(
-          left: isLeftColumn
+          left: index.isEven
               ? const BorderSide(color: Color(0xFFE2E2E2), width: 1)
               : BorderSide.none,
-          right: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
-          top: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
+          right:  const BorderSide(color: Color(0xFFE2E2E2), width: 1),
+          top:    const BorderSide(color: Color(0xFFE2E2E2), width: 1),
           bottom: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
         ),
       ),
-
-
-      // decoration: BoxDecoration(
-      //   color: Colors.white,
-      //   border: Border(
-      //     left: isLeftColumn
-      //         ? const BorderSide(color: Color(0xFFE2E2E2), width: 1)
-      //         : BorderSide.none,
-      //     right: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
-      //     top: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
-      //     bottom: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
-      //   ),
-      // ),
-
       child: InkWell(
+        borderRadius: _borderRadius(),
         onTap: () {},
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-
-            if (data.iconAsset != null)
+              if (data.iconAsset != null)
                 SvgPicture.asset(
-                data.iconAsset!,
-                width: data.iconSize,
-                height: data.iconSize,
-                fit: BoxFit.contain,
-              )
-
-              // if (data.iconAsset != null)
-              //   SizedBox(
-              //     width: 40,
-              //     height: 40,
-              //     child: SvgPicture.asset(
-              //       data.iconAsset!,
-              //       width: 40,
-              //       height: 40,
-              //       fit: BoxFit.contain,
-              //     ),
-              //   )
-
-
-              // if (data.iconAsset != null)
-              //   SvgPicture.asset(
-              //     data.iconAsset!,
-              //     width: 35,
-              //     height: 35,
-              //
-              //     // colorFilter: const ColorFilter.mode(
-              //     //   Color(0xFF111111),
-              //     //   BlendMode.srcIn,
-              //     // ),
-              //   )
-
-
+                  data.iconAsset!,
+                  width: data.iconSize,
+                  height: data.iconSize,
+                  fit: BoxFit.contain,
+                )
               else
                 Icon(
                   data.icon,
@@ -257,6 +256,159 @@ class _DashboardTile extends StatelessWidget {
     );
   }
 }
+
+
+
+// class _DashboardTileData {
+//   const _DashboardTileData({
+//     this.icon,
+//     this.iconAsset,
+//     this.iconSize = 38,         // ← add this
+//     required this.title,
+//     required this.subtitle,
+//   }) : assert(icon != null || iconAsset != null, 'Provide icon or iconAsset');
+//
+//   final IconData? icon;
+//   final String? iconAsset;
+//   final double iconSize;        // ← add this
+//   final String title;
+//   final String subtitle;
+// }
+
+// class _DashboardTile extends StatelessWidget {
+//   const _DashboardTile({
+//     required this.data,
+//     required this.isLeftColumn,
+//   });
+//
+//   final _DashboardTileData data;
+//   final bool isLeftColumn;
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//
+//
+//       decoration: BoxDecoration(
+//         color: Colors.white,
+//         borderRadius: BorderRadius.only(
+//           topLeft: const Radius.circular(16),
+//           topRight: const Radius.circular(16),     // ← adjust per your grid layout
+//           bottomLeft: Radius.circular(16),
+//           bottomRight: const Radius.circular(16),
+//         ),
+//
+//
+//
+//         // decoration: BoxDecoration(
+//         //   color: Colors.white,
+//         //   borderRadius: BorderRadius.only(
+//         //     topLeft: isLeftColumn ? const Radius.circular(8) : Radius.zero,
+//         //     topRight: const Radius.circular(8),     // ← adjust per your grid layout
+//         //     bottomLeft: isLeftColumn ? const Radius.circular(8) : Radius.zero,
+//         //     bottomRight: const Radius.circular(8),
+//         //   ),
+//
+//         border: Border(
+//           left: isLeftColumn
+//               ? const BorderSide(color: Color(0xFFE2E2E2), width: 1)
+//               : BorderSide.none,
+//           right: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
+//           top: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
+//           bottom: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
+//         ),
+//       ),
+//
+//
+//       // decoration: BoxDecoration(
+//       //   color: Colors.white,
+//       //   border: Border(
+//       //     left: isLeftColumn
+//       //         ? const BorderSide(color: Color(0xFFE2E2E2), width: 1)
+//       //         : BorderSide.none,
+//       //     right: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
+//       //     top: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
+//       //     bottom: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
+//       //   ),
+//       // ),
+//
+//       child: InkWell(
+//         onTap: () {},
+//         child: Center(
+//           child: Column(
+//             mainAxisSize: MainAxisSize.min,
+//             children: [
+//
+//             if (data.iconAsset != null)
+//                 SvgPicture.asset(
+//                 data.iconAsset!,
+//                 width: data.iconSize,
+//                 height: data.iconSize,
+//                 fit: BoxFit.contain,
+//               )
+//
+//               // if (data.iconAsset != null)
+//               //   SizedBox(
+//               //     width: 40,
+//               //     height: 40,
+//               //     child: SvgPicture.asset(
+//               //       data.iconAsset!,
+//               //       width: 40,
+//               //       height: 40,
+//               //       fit: BoxFit.contain,
+//               //     ),
+//               //   )
+//
+//
+//               // if (data.iconAsset != null)
+//               //   SvgPicture.asset(
+//               //     data.iconAsset!,
+//               //     width: 35,
+//               //     height: 35,
+//               //
+//               //     // colorFilter: const ColorFilter.mode(
+//               //     //   Color(0xFF111111),
+//               //     //   BlendMode.srcIn,
+//               //     // ),
+//               //   )
+//
+//
+//               else
+//                 Icon(
+//                   data.icon,
+//                   size: 35,
+//                   color: const Color(0xFF62748E),
+//                 ),
+//               const SizedBox(height: 12),
+//               Text(
+//                 data.title,
+//                 textAlign: TextAlign.center,
+//                 style: const TextStyle(
+//                   fontSize: 14,
+//                   fontWeight: FontWeight.w700,
+//                   color: Color(0xFF62748E),
+//                   letterSpacing: 0.3,
+//                 ),
+//               ),
+//               if (data.subtitle.isNotEmpty) ...[
+//                 const SizedBox(height: 4),
+//                 Text(
+//                   data.subtitle,
+//                   textAlign: TextAlign.center,
+//                   style: const TextStyle(
+//                     fontSize: 12,
+//                     fontWeight: FontWeight.w400,
+//                     color: Color(0xFF9A9A9A),
+//                   ),
+//                 ),
+//               ],
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 
 /// --------------- Data model for dashboard tiles, containing icon, title, and subtitle information ------------------ ///
