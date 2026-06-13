@@ -12,12 +12,11 @@ class ImageAssets {
   static const String deltaLPGLogoPNG = '$_IMAGE_PATH/logo_delta_lpg.png';
   static const String logoSplashScreenLogoPNG = '$_IMAGE_PATH/logo_splash_scr_2.png';
 
-
-
   static const String iconLogOut2SVG = '$_IMAGE_PATH/logout_icon_2.svg';
   static const String iconMenu3SVG = '$_IMAGE_PATH/menu_icon_3.svg';
 
   ///---------- Home Dashboard Screen Icons ---///
+  static const String iconDashboardSVG = '$_IMAGE_PATH/dashboard_icon_02.svg';
   static const String iconHomeSVG = '$_IMAGE_PATH/home_icon.svg';
   static const String iconHome02SVG = '$_IMAGE_PATH/home_icon_2.svg';
   static const String iconHome03SVG = '$_IMAGE_PATH/house_icon_03.svg';

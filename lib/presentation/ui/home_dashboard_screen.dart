@@ -14,18 +14,10 @@ class HomeDashboardScreen extends StatefulWidget {
 class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
   static const List<_DashboardTileData> _tiles = [
     _DashboardTileData(
-
       iconAsset: ImageAssets.iconAttendance07SVG,
       iconSize: 45,   // ← bump up until it visually matches
       title: 'Attendance',
       subtitle: '',
-
-
-      // iconAsset: ImageAssets.iconAttendance06SVG,
-      //
-      // // iconAsset: 'assets/images/attendance_icon.svg',
-      // title: 'Attendance',
-      // subtitle: '',
     ),
     _DashboardTileData(
       // iconAsset: 'assets/images/attendance_icon_03.svg',
@@ -46,30 +38,31 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
     _DashboardTileData(
       iconAsset: ImageAssets.iconCollectionSVG,
       // icon: Icons.videocam_outlined,
-
       title: 'Collection',
       subtitle: '',
     ),
-    _DashboardTileData(
-      icon: Icons.water_drop_outlined,
-      title: 'Water',
-      subtitle: '',
-    ),
-    _DashboardTileData(
-      icon: Icons.electrical_services_outlined,
-      title: 'Socket',
-      subtitle: '',
-    ),
-    _DashboardTileData(
-      icon: Icons.garage_outlined,
-      title: 'Garage',
-      subtitle: '',
-    ),
-    _DashboardTileData(
-      icon: Icons.window_outlined,
-      title: 'Window',
-      subtitle: '',
-    ),
+
+    // _DashboardTileData(
+    //   icon: Icons.water_drop_outlined,
+    //   title: 'Water',
+    //   subtitle: '',
+    // ),
+    // _DashboardTileData(
+    //   icon: Icons.electrical_services_outlined,
+    //   title: 'Socket',
+    //   subtitle: '',
+    // ),
+    // _DashboardTileData(
+    //   icon: Icons.garage_outlined,
+    //   title: 'Garage',
+    //   subtitle: '',
+    // ),
+    // _DashboardTileData(
+    //   icon: Icons.window_outlined,
+    //   title: 'Window',
+    //   subtitle: '',
+    // ),
+
   ];
 
   @override
@@ -100,47 +93,6 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
                 ),
               ),
             ),
-
-            // Expanded(
-            //
-            //   child: GridView.builder(
-            //     shrinkWrap: true,
-            //     physics: const NeverScrollableScrollPhysics(),
-            //     itemCount: _tiles.length,
-            //     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            //       crossAxisCount: 2,
-            //       childAspectRatio: 1.0,
-            //       crossAxisSpacing: 0,
-            //       mainAxisSpacing: 0,
-            //     ),
-            //     itemBuilder: (context, index) => _DashboardTile(
-            //       data: _tiles[index],
-            //       index: index,
-            //       totalCount: _tiles.length,
-            //     ),
-            //   ),
-            //
-            //   // child: GridView.builder(
-            //   //   padding: const EdgeInsets.all(12),
-            //   //   itemCount: _tiles.length,
-            //   //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            //   //     crossAxisCount: 2,
-            //   //     crossAxisSpacing: 0,
-            //   //     mainAxisSpacing: 0,
-            //   //     childAspectRatio: 1.02,
-            //   //   ),
-            //   //   itemBuilder: (context, index) {
-            //   //     final tile = _tiles[index];
-            //   //     return _DashboardTile(
-            //   //       data: tile,
-            //   //       isLeftColumn: index.isEven,
-            //   //     );
-            //   //   },
-            //   // ),
-            //
-            //
-            // ),
-
           ],
         ),
       ),
@@ -257,301 +209,6 @@ class _DashboardTile extends StatelessWidget {
   }
 }
 
-
-
-// class _DashboardTileData {
-//   const _DashboardTileData({
-//     this.icon,
-//     this.iconAsset,
-//     this.iconSize = 38,         // ← add this
-//     required this.title,
-//     required this.subtitle,
-//   }) : assert(icon != null || iconAsset != null, 'Provide icon or iconAsset');
-//
-//   final IconData? icon;
-//   final String? iconAsset;
-//   final double iconSize;        // ← add this
-//   final String title;
-//   final String subtitle;
-// }
-
-// class _DashboardTile extends StatelessWidget {
-//   const _DashboardTile({
-//     required this.data,
-//     required this.isLeftColumn,
-//   });
-//
-//   final _DashboardTileData data;
-//   final bool isLeftColumn;
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//
-//
-//       decoration: BoxDecoration(
-//         color: Colors.white,
-//         borderRadius: BorderRadius.only(
-//           topLeft: const Radius.circular(16),
-//           topRight: const Radius.circular(16),     // ← adjust per your grid layout
-//           bottomLeft: Radius.circular(16),
-//           bottomRight: const Radius.circular(16),
-//         ),
-//
-//
-//
-//         // decoration: BoxDecoration(
-//         //   color: Colors.white,
-//         //   borderRadius: BorderRadius.only(
-//         //     topLeft: isLeftColumn ? const Radius.circular(8) : Radius.zero,
-//         //     topRight: const Radius.circular(8),     // ← adjust per your grid layout
-//         //     bottomLeft: isLeftColumn ? const Radius.circular(8) : Radius.zero,
-//         //     bottomRight: const Radius.circular(8),
-//         //   ),
-//
-//         border: Border(
-//           left: isLeftColumn
-//               ? const BorderSide(color: Color(0xFFE2E2E2), width: 1)
-//               : BorderSide.none,
-//           right: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
-//           top: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
-//           bottom: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
-//         ),
-//       ),
-//
-//
-//       // decoration: BoxDecoration(
-//       //   color: Colors.white,
-//       //   border: Border(
-//       //     left: isLeftColumn
-//       //         ? const BorderSide(color: Color(0xFFE2E2E2), width: 1)
-//       //         : BorderSide.none,
-//       //     right: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
-//       //     top: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
-//       //     bottom: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
-//       //   ),
-//       // ),
-//
-//       child: InkWell(
-//         onTap: () {},
-//         child: Center(
-//           child: Column(
-//             mainAxisSize: MainAxisSize.min,
-//             children: [
-//
-//             if (data.iconAsset != null)
-//                 SvgPicture.asset(
-//                 data.iconAsset!,
-//                 width: data.iconSize,
-//                 height: data.iconSize,
-//                 fit: BoxFit.contain,
-//               )
-//
-//               // if (data.iconAsset != null)
-//               //   SizedBox(
-//               //     width: 40,
-//               //     height: 40,
-//               //     child: SvgPicture.asset(
-//               //       data.iconAsset!,
-//               //       width: 40,
-//               //       height: 40,
-//               //       fit: BoxFit.contain,
-//               //     ),
-//               //   )
-//
-//
-//               // if (data.iconAsset != null)
-//               //   SvgPicture.asset(
-//               //     data.iconAsset!,
-//               //     width: 35,
-//               //     height: 35,
-//               //
-//               //     // colorFilter: const ColorFilter.mode(
-//               //     //   Color(0xFF111111),
-//               //     //   BlendMode.srcIn,
-//               //     // ),
-//               //   )
-//
-//
-//               else
-//                 Icon(
-//                   data.icon,
-//                   size: 35,
-//                   color: const Color(0xFF62748E),
-//                 ),
-//               const SizedBox(height: 12),
-//               Text(
-//                 data.title,
-//                 textAlign: TextAlign.center,
-//                 style: const TextStyle(
-//                   fontSize: 14,
-//                   fontWeight: FontWeight.w700,
-//                   color: Color(0xFF62748E),
-//                   letterSpacing: 0.3,
-//                 ),
-//               ),
-//               if (data.subtitle.isNotEmpty) ...[
-//                 const SizedBox(height: 4),
-//                 Text(
-//                   data.subtitle,
-//                   textAlign: TextAlign.center,
-//                   style: const TextStyle(
-//                     fontSize: 12,
-//                     fontWeight: FontWeight.w400,
-//                     color: Color(0xFF9A9A9A),
-//                   ),
-//                 ),
-//               ],
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-
-/// --------------- Data model for dashboard tiles, containing icon, title, and subtitle information ------------------ ///
-// class _DashboardTileData {
-//   const _DashboardTileData({
-//     this.icon,
-//     this.iconAsset,
-//     required this.title,
-//     required this.subtitle,
-//   }) : assert(icon != null || iconAsset != null, 'Provide icon or iconAsset');
-//
-//   final IconData? icon;
-//   final String? iconAsset;
-//   final String title;
-//   final String subtitle;
-// }
-//
-// class _DashboardTile extends StatelessWidget {
-//   const _DashboardTile({
-//     required this.data,
-//     required this.isLeftColumn,
-//   });
-//
-//   final _DashboardTileData data;
-//   final bool isLeftColumn;
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//
-//
-//         decoration: BoxDecoration(
-//           color: Colors.white,
-//           borderRadius: BorderRadius.only(
-//             topLeft: const Radius.circular(16),
-//             topRight: const Radius.circular(16),     // ← adjust per your grid layout
-//             bottomLeft: Radius.circular(16),
-//             bottomRight: const Radius.circular(16),
-//           ),
-//
-//
-//
-//       // decoration: BoxDecoration(
-//       //   color: Colors.white,
-//       //   borderRadius: BorderRadius.only(
-//       //     topLeft: isLeftColumn ? const Radius.circular(8) : Radius.zero,
-//       //     topRight: const Radius.circular(8),     // ← adjust per your grid layout
-//       //     bottomLeft: isLeftColumn ? const Radius.circular(8) : Radius.zero,
-//       //     bottomRight: const Radius.circular(8),
-//       //   ),
-//
-//         border: Border(
-//           left: isLeftColumn
-//               ? const BorderSide(color: Color(0xFFE2E2E2), width: 1)
-//               : BorderSide.none,
-//           right: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
-//           top: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
-//           bottom: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
-//         ),
-//       ),
-//
-//
-//       // decoration: BoxDecoration(
-//       //   color: Colors.white,
-//       //   border: Border(
-//       //     left: isLeftColumn
-//       //         ? const BorderSide(color: Color(0xFFE2E2E2), width: 1)
-//       //         : BorderSide.none,
-//       //     right: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
-//       //     top: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
-//       //     bottom: const BorderSide(color: Color(0xFFE2E2E2), width: 1),
-//       //   ),
-//       // ),
-//
-//       child: InkWell(
-//         onTap: () {},
-//         child: Center(
-//           child: Column(
-//             mainAxisSize: MainAxisSize.min,
-//             children: [
-//
-//               if (data.iconAsset != null)
-//                 SizedBox(
-//                   width: 40,
-//                   height: 40,
-//                   child: SvgPicture.asset(
-//                     data.iconAsset!,
-//                     width: 40,
-//                     height: 40,
-//                     fit: BoxFit.contain,
-//                   ),
-//                 )
-//
-//
-//               // if (data.iconAsset != null)
-//               //   SvgPicture.asset(
-//               //     data.iconAsset!,
-//               //     width: 35,
-//               //     height: 35,
-//               //
-//               //     // colorFilter: const ColorFilter.mode(
-//               //     //   Color(0xFF111111),
-//               //     //   BlendMode.srcIn,
-//               //     // ),
-//               //   )
-//
-//
-//               else
-//                 Icon(
-//                   data.icon,
-//                   size: 35,
-//                   color: const Color(0xFF62748E),
-//                 ),
-//               const SizedBox(height: 12),
-//               Text(
-//                 data.title,
-//                 textAlign: TextAlign.center,
-//                 style: const TextStyle(
-//                   fontSize: 14,
-//                   fontWeight: FontWeight.w700,
-//                   color: Color(0xFF62748E),
-//                   letterSpacing: 0.3,
-//                 ),
-//               ),
-//               if (data.subtitle.isNotEmpty) ...[
-//                 const SizedBox(height: 4),
-//                 Text(
-//                   data.subtitle,
-//                   textAlign: TextAlign.center,
-//                   style: const TextStyle(
-//                     fontSize: 12,
-//                     fontWeight: FontWeight.w400,
-//                     color: Color(0xFF9A9A9A),
-//                   ),
-//                 ),
-//               ],
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
 
 /// --------------- Profile card widget displaying user information and attendance times ------------------ ///
 class _ProfileCard extends StatelessWidget {

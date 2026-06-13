@@ -8,6 +8,7 @@ import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import '../../home_dashboard_screen.dart';
 import '../../utils/image_assets.dart';
 import '../../widgets/appbar/custom_appbar.dart';
+import 'knowledge_screen.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -30,46 +31,47 @@ class _HomeScreenState extends State<HomeScreen> {
     const HomeDashboardScreen(),
     const FavoriteProductScreen(),
     const AddToCartScreen(),
-    // const KnowledgeScreen(),
-
+    const KnowledgeScreen(),
   ];
 
 
-  final _items = [
+  /// Helper: tints the SVG teal when active, grey when inactive
+  Widget _svgIcon(String assetPath, double width, int itemIndex) {
+    return SvgPicture.asset(
+      assetPath,
+      width: width,
+      colorFilter: ColorFilter.mode(
+        _currentIndex == itemIndex ? Colors.teal : Colors.grey,
+        BlendMode.srcIn,
+      ),
+    );
+  }
+
+  List<SalomonBottomBarItem> get _items => [
     /// Home
     SalomonBottomBarItem(
-      //icon: const Icon(Icons.home),
-      icon: SvgPicture.asset(ImageAssets.iconHomeSVG, width: 27,),
-      //leading: SvgPicture.asset(ImageAssets.iconHome4SVG, width: 23,),
+      icon: _svgIcon(ImageAssets.iconDashboardSVG, 27, 0),
       title: const Text("Home"),
-
-      //selectedColor: Colors.red,
       selectedColor: Colors.teal,
     ),
 
     /// Favorite
     SalomonBottomBarItem(
-      //icon: const Icon(Icons.search),
-      //icon: SvgPicture.asset(ImageAssets.iconAddToFavoriteSVG, width: 27,),
-      icon: SvgPicture.asset(ImageAssets.iconHome03SVG, width: 27,),
+      icon: _svgIcon(ImageAssets.iconHome03SVG, 27, 1),
       title: const Text("Favorite"),
-      //selectedColor: Colors.orange,
       selectedColor: Colors.teal,
     ),
 
     /// Cart
     SalomonBottomBarItem(
-      //icon: const Icon(Icons.favorite_border),
-      icon: SvgPicture.asset(ImageAssets.iconShoppingCartSVG, width: 29,),
+      icon: _svgIcon(ImageAssets.iconShoppingCartSVG, 29, 2),
       title: const Text("My Cart"),
-      //selectedColor: Colors.pink,
       selectedColor: Colors.teal,
     ),
 
     /// Knowledge
     SalomonBottomBarItem(
-      //icon: const Icon(Icons.person),
-      icon: SvgPicture.asset(ImageAssets.iconAddToFavoriteSVG, width: 23,),
+      icon: _svgIcon(ImageAssets.iconAddToFavoriteSVG, 23, 3),
       title: const Text("Knowledge"),
       selectedColor: Colors.teal,
     ),
