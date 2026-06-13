@@ -33,6 +33,15 @@ class ImageAssets {
   static const String iconLeaveSVG = '$_IMAGE_PATH/leave_icon_02.svg';
 
 
+  static const String iconCustomerListSVG = '$_IMAGE_PATH/customer_list.svg';
+  static const String iconOrderPlacementSVG = '$_IMAGE_PATH/order_placement_icon.svg';
+  static const String iconPaymentCollectionSVG = '$_IMAGE_PATH/payment_collection_icon.svg';
+  static const String iconSalesReturnSVG = '$_IMAGE_PATH/sale_return_icon_02.svg';
+  static const String iconAchievementSVG = '$_IMAGE_PATH/achievement_icon_03.svg';
+  static const String iconReportsSVG = '$_IMAGE_PATH/reports.svg';
+  static const String iconKnowledgeSVG = '$_IMAGE_PATH/knowledge_icon.svg';
+  static const String iconSettingsSVG = '$_IMAGE_PATH/setting_icon.svg';
+
   ///---------- Drawer icons ----------///
   static const String iconTutorialsSVG = '$_IMAGE_PATH/tutorial_icon.svg';
   static const String iconFaqSVG = '$_IMAGE_PATH/faq_icon.svg';

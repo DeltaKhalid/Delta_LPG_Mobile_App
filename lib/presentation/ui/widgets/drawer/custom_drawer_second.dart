@@ -261,28 +261,36 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
             ListTile(
               contentPadding: const EdgeInsets.symmetric(horizontal: 10),
               visualDensity: const VisualDensity(vertical: -4), // reduces height
-              leading: SvgPicture.asset(ImageAssets.iconHomeSVG, width: 23),
-              // title: const Text('Home'),
+              leading: SvgPicture.asset(
+                ImageAssets.iconDashboardSVG,
+                width: 20,
+                colorFilter: const ColorFilter.mode(AppColors.drawerIconTextColor, BlendMode.srcIn),
+              ),
               title: const Text(
                 'Home',
                 style: TextStyle(
-                  fontSize: 13,   // 👈 sets text size
+                  fontSize: 15,
+                  color: AppColors.drawerIconTextColor,
                 ),
               ),
               onTap: () {
                 _navigateTo(const HomeScreen(), clearStack: true);
               },
             ),
-            ///---------------------------------------- Tutorial -----------------------------------------------------------///
+            ///---------------------------------------- Customer List -----------------------------------------------------------///
             ListTile(
-              contentPadding: const EdgeInsets.symmetric(horizontal: 10),
+              contentPadding: const EdgeInsets.symmetric(horizontal: 7),
               visualDensity: const VisualDensity(vertical: -4), // reduces height
-              leading: SvgPicture.asset(ImageAssets.iconTutorialsSVG, width: 23),
-              // title: const Text('Tutorial'),
+              leading: SvgPicture.asset(
+                ImageAssets.iconCustomerListSVG,
+                width: 26,
+                colorFilter: const ColorFilter.mode(AppColors.drawerIconTextColor, BlendMode.srcIn),
+              ),
               title: const Text(
-                'Tutorial',
+                'Customer List',
                 style: TextStyle(
-                  fontSize: 13,   // 👈 sets text size
+                  fontSize: 15,
+                  color: AppColors.drawerIconTextColor,
                 ),
               ),
 
@@ -290,112 +298,140 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 _navigateTo(const TutorialScreen());
               },
             ),
-            ///---------------------------------------- FAQ -------------------------------------------------------------///
+            ///---------------------------------------- Order Placement -------------------------------------------------------------///
             ListTile(
               contentPadding: const EdgeInsets.symmetric(horizontal: 10),
               visualDensity: const VisualDensity(vertical: -4), // reduces height
-              leading: SvgPicture.asset(ImageAssets.iconFaqSVG, width: 23),
-              // title: const Text('FAQ'),
+              leading: SvgPicture.asset(
+                ImageAssets.iconOrderPlacementSVG,
+                width: 23,
+                colorFilter: const ColorFilter.mode(AppColors.drawerIconTextColor, BlendMode.srcIn),
+              ),
               title: const Text(
-                'FAQ',
+                'Order Placement',
                 style: TextStyle(
-                  fontSize: 13,   // 👈 sets text size
+                  fontSize: 15,
+                  color: AppColors.drawerIconTextColor,
                 ),
               ),
               onTap: () {
                 _navigateTo(const FaqScreen());
               },
             ),
-            ///---------------------------------------- About Us -------------------------------------------------------------///
+            ///---------------------------------------- Payment Collections -------------------------------------------------------------///
             ListTile(
               contentPadding: const EdgeInsets.symmetric(horizontal: 10),
               visualDensity: const VisualDensity(vertical: -4), // reduces height
-              leading: SvgPicture.asset(ImageAssets.iconAboutUsSVG, width: 20),
-              // title: const Text('About Us'),
+              leading: SvgPicture.asset(
+                ImageAssets.iconPaymentCollectionSVG,
+                width: 20,
+                colorFilter: const ColorFilter.mode(AppColors.drawerIconTextColor, BlendMode.srcIn),
+              ),
               title: const Text(
-                'About Us',
+                'Payment Collections',
                 style: TextStyle(
-                  fontSize: 13,   // 👈 sets text size
+                  fontSize: 15,
+                  color: AppColors.drawerIconTextColor,
                 ),
               ),
               onTap: () {
                 _navigateTo(const AboutUsScreen());
               },
             ),
-            ///---------------------------------------- Safety Guide Line -------------------------------------------------------------///
+            ///---------------------------------------- Sales Return -------------------------------------------------------------///
             ListTile(
               contentPadding: const EdgeInsets.symmetric(horizontal: 10),
               visualDensity: const VisualDensity(vertical: -4), // reduces height
-              leading: SvgPicture.asset(ImageAssets.iconSafetyGuideLineSVG, width: 20),
-              // title: const Text('Safety Guide Line'),
+              leading: SvgPicture.asset(
+                ImageAssets.iconSalesReturnSVG,
+                width: 20,
+                colorFilter: const ColorFilter.mode(AppColors.drawerIconTextColor, BlendMode.srcIn),
+              ),
               title: const Text(
-                'Safety Guide Line',
+                'Sales Return',
                 style: TextStyle(
-                  fontSize: 13,   // 👈 sets text size
+                  fontSize: 15,
+                  color: AppColors.drawerIconTextColor,
                 ),
               ),
               onTap: () {
                 _navigateTo(const SafetyGuideScreen());
               },
             ),
-            ///---------------------------------------- Return & Refund Policy -------------------------------------------------------------///
+            ///---------------------------------------- Achievement -------------------------------------------------------------///
             ListTile(
               contentPadding: const EdgeInsets.symmetric(horizontal: 10),
               visualDensity: const VisualDensity(vertical: -4), // reduces height
-              leading: SvgPicture.asset(ImageAssets.iconReturnRefundPolicySVG, width: 25),
-              // title: const Text('Return & Refund Policy'),
+              leading: SvgPicture.asset(
+                ImageAssets.iconAchievementSVG,
+                width: 22,
+                colorFilter: const ColorFilter.mode(AppColors.drawerIconTextColor, BlendMode.srcIn),
+              ),
               title: const Text(
-                'Return & Refund Policy',
+                'Achievement',
                 style: TextStyle(
-                  fontSize: 13,   // 👈 sets text size
+                  fontSize: 15,
+                  color: AppColors.drawerIconTextColor,
                 ),
               ),
               onTap: () {
                 _navigateTo(const ReturnRefundScreen());
               },
             ),
-            ///---------------------------------------- Delivery Charge Policy -------------------------------------------------------------///
+            ///---------------------------------------- Reports -------------------------------------------------------------///
             ListTile(
               contentPadding: const EdgeInsets.symmetric(horizontal: 10),
               visualDensity: const VisualDensity(vertical: -4), // reduces height
-              leading: SvgPicture.asset(ImageAssets.iconDeliveryChargePolicySVG, width: 23),
-              // title: const Text('Delivery Charge Policy'),
+              leading: SvgPicture.asset(
+                ImageAssets.iconReportsSVG,
+                width: 20,
+                colorFilter: const ColorFilter.mode(AppColors.drawerIconTextColor, BlendMode.srcIn),
+              ),
               title: const Text(
-                'Delivery Charge Policy',
+                'Reports',
                 style: TextStyle(
-                  fontSize: 13,   // 👈 sets text size
+                  fontSize: 15,
+                  color: AppColors.drawerIconTextColor,
                 ),
               ),
               onTap: () {
                 _navigateTo(const DeliveryChargeScreen());
               },
             ),
-            ///---------------------------------------- Contact Us -------------------------------------------------------------///
+            ///---------------------------------------- Knowledge -------------------------------------------------------------///
             ListTile(
               contentPadding: const EdgeInsets.symmetric(horizontal: 10),
               visualDensity: const VisualDensity(vertical: -4), // reduces height
-              leading: SvgPicture.asset(ImageAssets.iconContactUsSVG, width: 21),
-              // title: const Text('Contact Us'),
+              leading: SvgPicture.asset(
+                ImageAssets.iconKnowledgeSVG,
+                width: 21,
+                colorFilter: const ColorFilter.mode(AppColors.drawerIconTextColor, BlendMode.srcIn),
+              ),
               title: const Text(
-                'Contact Us',
+                'Knowledge',
                 style: TextStyle(
-                  fontSize: 13,   // 👈 sets text size
+                  fontSize: 15,
+                  color: AppColors.drawerIconTextColor,
                 ),
               ),
               onTap: () {
                 _navigateTo(const ContactUsScreen());
               },
             ),
-            ///---------------------------------------- Login -------------------------------------------------------------------///
+            ///---------------------------------------- Settings -------------------------------------------------------------------///
             ListTile(
               contentPadding: const EdgeInsets.symmetric(horizontal: 10),
               visualDensity: const VisualDensity(vertical: -4), // reduces height
-              leading: SvgPicture.asset(ImageAssets.iconLoginSVG, width: 20),
-              // title: const Text('Login'),
+              leading: SvgPicture.asset(
+                ImageAssets.iconSettingsSVG,
+                width: 20,
+                colorFilter: const ColorFilter.mode(AppColors.drawerIconTextColor, BlendMode.srcIn),
+              ),
               title: const Text(
-                'Login',
+                'Settings',
                 style: TextStyle(
-                  fontSize: 13,   // 👈 sets text size
+                  fontSize: 15,
+                  color: AppColors.drawerIconTextColor,
                 ),
               ),
               onTap: () {
