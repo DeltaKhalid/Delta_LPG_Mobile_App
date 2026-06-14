@@ -1,5 +1,7 @@
 import 'package:delta_lpg_product_sale/presentation/ui/screens/attendance/attendance_activity.dart';
+import 'package:delta_lpg_product_sale/presentation/ui/screens/collection/collection_activity.dart';
 import 'package:delta_lpg_product_sale/presentation/ui/screens/leave/leave_activity.dart';
+import 'package:delta_lpg_product_sale/presentation/ui/screens/order/order_activity.dart';
 import 'package:delta_lpg_product_sale/presentation/ui/utils/image_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -91,14 +93,19 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
                     data: _tiles[index],
                     index: index,
                     totalCount: _tiles.length,
-                    onTap: (index == 0 || index == 1)
-                        ? () => Navigator.push(
+                    onTap: (index == 0 || index == 1 || index == 2 || index == 3)
+                        ? () {
+                            final Widget destination = index == 0
+                                ? const AttendanceActivity()
+                                : index == 1
+                                    ? const LeaveActivity()
+                                    : index == 2
+                                        ? const OrderActivity()
+                                        : const CollectionActivity();
+                            Navigator.push(
                               context,
                               PageRouteBuilder(
-                                pageBuilder: (context, animation, secondaryAnimation) =>
-                                    index == 0
-                                        ? const AttendanceActivity()
-                                        : const LeaveActivity(),
+                                pageBuilder: (context, animation, secondaryAnimation) => destination,
                                 transitionsBuilder: (context, animation, secondaryAnimation, child) {
                                   final tween = Tween(
                                     begin: const Offset(1.0, 0.0),
@@ -111,7 +118,8 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
                                 },
                                 transitionDuration: const Duration(milliseconds: 300),
                               ),
-                            )
+                            );
+                          }
                         : null,
                   ),
                 ),
