@@ -1,3 +1,4 @@
+import 'package:delta_lpg_product_sale/presentation/ui/screens/attendance/attendance_activity.dart';
 import 'package:delta_lpg_product_sale/presentation/ui/utils/image_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -89,6 +90,26 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
                     data: _tiles[index],
                     index: index,
                     totalCount: _tiles.length,
+                    onTap: index == 0
+                        ? () => Navigator.push(
+                              context,
+                              PageRouteBuilder(
+                                pageBuilder: (context, animation, secondaryAnimation) =>
+                                    const AttendanceActivity(),
+                                transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                  final tween = Tween(
+                                    begin: const Offset(1.0, 0.0),
+                                    end: Offset.zero,
+                                  ).chain(CurveTween(curve: Curves.easeInOut));
+                                  return SlideTransition(
+                                    position: animation.drive(tween),
+                                    child: child,
+                                  );
+                                },
+                                transitionDuration: const Duration(milliseconds: 300),
+                              ),
+                            )
+                        : null,
                   ),
                 ),
               ),
@@ -122,11 +143,13 @@ class _DashboardTile extends StatelessWidget {
     required this.data,
     required this.index,
     required this.totalCount,
+    this.onTap,
   });
 
   final _DashboardTileData data;
   final int index;
   final int totalCount;
+  final VoidCallback? onTap;
 
   BorderRadius _borderRadius() {
     const r = Radius.circular(16);
@@ -160,7 +183,7 @@ class _DashboardTile extends StatelessWidget {
       ),
       child: InkWell(
         borderRadius: _borderRadius(),
-        onTap: () {},
+        onTap: onTap,
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,

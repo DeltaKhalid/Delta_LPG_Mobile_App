@@ -166,6 +166,10 @@ class _CustomAppBarState extends State<CustomAppBar> {
               );
             },
           ),
+          systemOverlayStyle: const SystemUiOverlayStyle(
+            statusBarColor: AppColors.primaryColorSecondShad02,
+            statusBarIconBrightness: Brightness.light,
+          ),
           actions: [
             ///---------- Notification Icon --------------///
             // IconButton(
@@ -233,7 +237,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
             ),
 
 
-          ], systemOverlayStyle: SystemUiOverlayStyle.light,
+          ],
         ),
       ),
     );
