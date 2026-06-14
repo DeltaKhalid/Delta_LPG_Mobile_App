@@ -50,28 +50,28 @@ class _HomeScreenState extends State<HomeScreen> {
   List<SalomonBottomBarItem> get _items => [
     /// Home
     SalomonBottomBarItem(
-      icon: _svgIcon(ImageAssets.iconDashboardSVG, 27, 0),
-      title: const Text("Home"),
+      icon: _svgIcon(ImageAssets.iconDashboardSVG, 23, 0),
+      title: const Text("Dashboard"),
       selectedColor: Colors.teal,
     ),
 
-    /// Favorite
+    /// Achievements
     SalomonBottomBarItem(
-      icon: _svgIcon(ImageAssets.iconHome03SVG, 27, 1),
-      title: const Text("Favorite"),
+      icon: _svgIcon(ImageAssets.iconAchievementSVG, 23, 1),
+      title: const Text("Achievements"),
       selectedColor: Colors.teal,
     ),
 
     /// Cart
     SalomonBottomBarItem(
-      icon: _svgIcon(ImageAssets.iconShoppingCartSVG, 29, 2),
-      title: const Text("My Cart"),
+      icon: _svgIcon(ImageAssets.iconReportsSVG, 23, 2),
+      title: const Text("Reports"),
       selectedColor: Colors.teal,
     ),
 
     /// Knowledge
     SalomonBottomBarItem(
-      icon: _svgIcon(ImageAssets.iconAddToFavoriteSVG, 23, 3),
+      icon: _svgIcon(ImageAssets.iconKnowledge02SVG, 23, 3),
       title: const Text("Knowledge"),
       selectedColor: Colors.teal,
     ),
@@ -122,6 +122,7 @@ class _HomeScreenState extends State<HomeScreen> {
         margin: const EdgeInsets.all(8.0),
         child: SalomonBottomBar(
           duration: const Duration(milliseconds: 220),
+          itemPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           items: _items,
           currentIndex: _currentIndex,
           onTap: (index) => setState(() {

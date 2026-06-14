@@ -40,6 +40,7 @@ class ImageAssets {
   static const String iconAchievementSVG = '$_IMAGE_PATH/achievement_icon_03.svg';
   static const String iconReportsSVG = '$_IMAGE_PATH/reports.svg';
   static const String iconKnowledgeSVG = '$_IMAGE_PATH/knowledge_icon.svg';
+  static const String iconKnowledge02SVG = '$_IMAGE_PATH/knowledge_icon_02.svg';
   static const String iconSettingsSVG = '$_IMAGE_PATH/setting_icon.svg';
 
   ///---------- Drawer icons ----------///

@@ -277,17 +277,17 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 _navigateTo(const HomeScreen(), clearStack: true);
               },
             ),
-            ///---------------------------------------- Customer List -----------------------------------------------------------///
+            ///---------------------------------------- Reports -----------------------------------------------------------///
             ListTile(
-              contentPadding: const EdgeInsets.symmetric(horizontal: 7),
+              contentPadding: const EdgeInsets.symmetric(horizontal: 10),
               visualDensity: const VisualDensity(vertical: -4), // reduces height
               leading: SvgPicture.asset(
-                ImageAssets.iconCustomerListSVG,
-                width: 26,
+                ImageAssets.iconReportsSVG,
+                width: 20,
                 colorFilter: const ColorFilter.mode(AppColors.drawerIconTextColor, BlendMode.srcIn),
               ),
               title: const Text(
-                'Customer List',
+                'Reports',
                 style: TextStyle(
                   fontSize: 15,
                   color: AppColors.drawerIconTextColor,
@@ -364,7 +364,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
               visualDensity: const VisualDensity(vertical: -4), // reduces height
               leading: SvgPicture.asset(
                 ImageAssets.iconAchievementSVG,
-                width: 22,
+                width: 15,
                 colorFilter: const ColorFilter.mode(AppColors.drawerIconTextColor, BlendMode.srcIn),
               ),
               title: const Text(
