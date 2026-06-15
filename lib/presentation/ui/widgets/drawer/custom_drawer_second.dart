@@ -13,6 +13,7 @@ import '../../screens/drawer/safety_guide_screen.dart';
 import '../../screens/drawer/tutorial_screen.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/image_assets.dart';
+import 'package:avatar_glow/avatar_glow.dart';
 
 
 class CustomDrawerSecond extends StatefulWidget {
@@ -119,121 +120,157 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
         child: ListView(
           children: [
 
+
+
             DrawerHeader(
               padding: const EdgeInsets.all(0),
-
               child: Container(
-                //height: 50,
-                //color: Colors.cyanAccent,
                 child: Row(
                   children: [
-
-
                     Expanded(
                       flex: 8,
-                      child: Container(
-                          padding: const EdgeInsets.all(5),
-                          margin: EdgeInsets.only(left: 10),
-                          height: 100,
-                          //color: Colors.green,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(
-                              //color: Colors.green, // Border color
-                              color: AppColors.primaryColorSecond, // Border color
-                              width: 1.0, // Border width
-                            ),
-                          ),
-
-
-
+                      child: AvatarGlow(
+                        child: Material(
+                          elevation: 8.0,
+                          shape: const CircleBorder(),
                           child: CircleAvatar(
-                            radius: 40.0,
-                            backgroundColor: Colors.transparent, // optional
+                            backgroundColor: Colors.white,
+                            radius: 70.0,
                             child: ClipOval(
                               child: Image.asset(
                                 ImageAssets.deltaLPGLogoPNG,
-                                height: 60,
+                                height: 90,
                                 fit: BoxFit.cover,
                               ),
                             ),
-                          )
-
-
-
-
-
-                        // child: const CircleAvatar(
-                        //   //backgroundColor: Colors.redAccent[100],
-                        //
-                        //   radius: 40.0,
-                        //   // child: Image.asset(
-                        //   //   ImageAssets.imageDemoProfilePNG,
-                        //   //   height: 60,
-                        //   // ),
-                        //
-                        //   backgroundImage: AssetImage(
-                        //     //ImageAssets.imageDemoProfilePNG,
-                        //     ImageAssets.deltaLPGLogoPNG,
-                        //     //height: 60,
-                        //   ),
-                        // ),
-
-
-
-
+                          ),
+                        ),
                       ),
                     ),
-
-                    /// --- Name and Designation --- ///
-                    // Expanded(
-                    //   flex: 15,
-                    //   child: Container(
-                    //     padding: const EdgeInsets.only(left: 10),
-                    //     height: 70,
-                    //     //color: Colors.redAccent,
-                    //     child: Column(
-                    //       mainAxisAlignment: MainAxisAlignment.center,
-                    //       crossAxisAlignment: CrossAxisAlignment.start,
-                    //       children: [
-                    //         Text(
-                    //           'Khalid Ahmad',
-                    //           // '${AuthUtility.userInfo.data?.firstName}',
-                    //           style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
-                    //         ),
-                    //         const Text(
-                    //           //'Executive',
-                    //           'Designation',
-                    //           style: TextStyle(fontSize: 13),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //   ),
-                    // ),
-
-
-
-
                   ],
                 ),
               ),
-
-              // child: Material(
-              //   elevation: 8.0,
-              //   shape: const CircleBorder(),
-              //   child: CircleAvatar(
-              //     backgroundColor: Colors.red[100],
-              //     radius: 40.0,
-              //     child: Image.asset(
-              //       ImageAssets.deltaLogoPNG,
-              //       height: 60,
-              //     ),
-              //   ),
-              // ),
-
-
-
             ),
+
+
+
+
+            ///------------ Old code 02 -------------------------------///
+            // DrawerHeader(
+            //   padding: const EdgeInsets.all(0),
+            //
+            //   child: Container(
+            //     //height: 50,
+            //     //color: Colors.cyanAccent,
+            //     child: Row(
+            //       children: [
+            //
+            //
+            //         Expanded(
+            //           flex: 8,
+            //           child: Container(
+            //               padding: const EdgeInsets.all(5),
+            //               margin: EdgeInsets.only(left: 10),
+            //               height: 100,
+            //               //color: Colors.green,
+            //               decoration: BoxDecoration(
+            //                 shape: BoxShape.circle,
+            //                 border: Border.all(
+            //                   //color: Colors.green, // Border color
+            //                   color: AppColors.primaryColorSecond, // Border color
+            //                   width: 1.0, // Border width
+            //                 ),
+            //               ),
+            //
+            //
+            //
+            //               child: CircleAvatar(
+            //                 radius: 40.0,
+            //                 backgroundColor: Colors.transparent, // optional
+            //                 child: ClipOval(
+            //                   child: Image.asset(
+            //                     ImageAssets.deltaLPGLogoPNG,
+            //                     height: 60,
+            //                     fit: BoxFit.cover,
+            //                   ),
+            //                 ),
+            //               )
+            //
+            //
+            //
+            //
+            //
+            //             // child: const CircleAvatar(
+            //             //   //backgroundColor: Colors.redAccent[100],
+            //             //
+            //             //   radius: 40.0,
+            //             //   // child: Image.asset(
+            //             //   //   ImageAssets.imageDemoProfilePNG,
+            //             //   //   height: 60,
+            //             //   // ),
+            //             //
+            //             //   backgroundImage: AssetImage(
+            //             //     //ImageAssets.imageDemoProfilePNG,
+            //             //     ImageAssets.deltaLPGLogoPNG,
+            //             //     //height: 60,
+            //             //   ),
+            //             // ),
+            //
+            //
+            //
+            //
+            //           ),
+            //         ),
+            //
+            //         /// --- Name and Designation --- ///
+            //         // Expanded(
+            //         //   flex: 15,
+            //         //   child: Container(
+            //         //     padding: const EdgeInsets.only(left: 10),
+            //         //     height: 70,
+            //         //     //color: Colors.redAccent,
+            //         //     child: Column(
+            //         //       mainAxisAlignment: MainAxisAlignment.center,
+            //         //       crossAxisAlignment: CrossAxisAlignment.start,
+            //         //       children: [
+            //         //         Text(
+            //         //           'Khalid Ahmad',
+            //         //           // '${AuthUtility.userInfo.data?.firstName}',
+            //         //           style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+            //         //         ),
+            //         //         const Text(
+            //         //           //'Executive',
+            //         //           'Designation',
+            //         //           style: TextStyle(fontSize: 13),
+            //         //         ),
+            //         //       ],
+            //         //     ),
+            //         //   ),
+            //         // ),
+            //
+            //
+            //
+            //
+            //       ],
+            //     ),
+            //   ),
+            //
+            //   // child: Material(
+            //   //   elevation: 8.0,
+            //   //   shape: const CircleBorder(),
+            //   //   child: CircleAvatar(
+            //   //     backgroundColor: Colors.red[100],
+            //   //     radius: 40.0,
+            //   //     child: Image.asset(
+            //   //       ImageAssets.deltaLogoPNG,
+            //   //       height: 60,
+            //   //     ),
+            //   //   ),
+            //   // ),
+            //
+            //
+            //
+            // ),
 
 
 
@@ -263,7 +300,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
               visualDensity: const VisualDensity(vertical: -4), // reduces height
               leading: SvgPicture.asset(
                 ImageAssets.iconDashboardSVG,
-                width: 20,
+                width: 18,
                 colorFilter: const ColorFilter.mode(AppColors.drawerIconTextColor, BlendMode.srcIn),
               ),
               title: const Text(
@@ -344,7 +381,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
               visualDensity: const VisualDensity(vertical: -4), // reduces height
               leading: SvgPicture.asset(
                 ImageAssets.iconSalesReturn02SVG,
-                width: 20,
+                width: 22,
                 colorFilter: const ColorFilter.mode(AppColors.drawerIconTextColor, BlendMode.srcIn),
               ),
               title: const Text(
@@ -364,7 +401,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
               visualDensity: const VisualDensity(vertical: -4), // reduces height
               leading: SvgPicture.asset(
                 ImageAssets.iconAchievementSVG,
-                width: 15,
+                width: 18,
                 colorFilter: const ColorFilter.mode(AppColors.drawerIconTextColor, BlendMode.srcIn),
               ),
               title: const Text(
@@ -404,7 +441,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
               visualDensity: const VisualDensity(vertical: -4), // reduces height
               leading: SvgPicture.asset(
                 ImageAssets.iconKnowledge02SVG,
-                width: 21,
+                width: 20,
                 colorFilter: const ColorFilter.mode(AppColors.drawerIconTextColor, BlendMode.srcIn),
               ),
               title: const Text(
