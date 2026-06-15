@@ -6,6 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 import '../../home_dashboard_screen.dart';
+import '../../utils/app_colors.dart';
 import '../../utils/image_assets.dart';
 import '../../widgets/appbar/custom_appbar.dart';
 import 'knowledge_screen.dart';
@@ -41,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
       assetPath,
       width: width,
       colorFilter: ColorFilter.mode(
-        _currentIndex == itemIndex ? Colors.teal : Colors.grey,
+        _currentIndex == itemIndex ? AppColors.primaryColorSecondShad02 : Colors.grey,
         BlendMode.srcIn,
       ),
     );
@@ -52,28 +53,28 @@ class _HomeScreenState extends State<HomeScreen> {
     SalomonBottomBarItem(
       icon: _svgIcon(ImageAssets.iconDashboardSVG, 23, 0),
       title: const Text("Dashboard"),
-      selectedColor: Colors.teal,
+      selectedColor: AppColors.primaryColorSecondShad02,
     ),
 
     /// Achievements
     SalomonBottomBarItem(
       icon: _svgIcon(ImageAssets.iconAchievementSVG, 23, 1),
       title: const Text("Achievements"),
-      selectedColor: Colors.teal,
+      selectedColor: AppColors.primaryColorSecondShad02,
     ),
 
     /// Cart
     SalomonBottomBarItem(
-      icon: _svgIcon(ImageAssets.iconReportsSVG, 23, 2),
+      icon: _svgIcon(ImageAssets.iconReportsSVG, 20, 2),
       title: const Text("Reports"),
-      selectedColor: Colors.teal,
+      selectedColor: AppColors.primaryColorSecondShad02,
     ),
 
     /// Knowledge
     SalomonBottomBarItem(
       icon: _svgIcon(ImageAssets.iconKnowledge02SVG, 23, 3),
       title: const Text("Knowledge"),
-      selectedColor: Colors.teal,
+      selectedColor: AppColors.primaryColorSecondShad02,
     ),
 
   ];
@@ -120,6 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: Card(
         elevation: 6,
         margin: const EdgeInsets.all(8.0),
+        color: Colors.white,
         child: SalomonBottomBar(
           duration: const Duration(milliseconds: 220),
           itemPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
