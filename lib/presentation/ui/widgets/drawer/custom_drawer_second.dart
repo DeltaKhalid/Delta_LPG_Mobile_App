@@ -123,36 +123,67 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
               children: [
 
 
-
-            DrawerHeader(
-              padding: const EdgeInsets.all(0),
-              child: Container(
-                child: Row(
-                  children: [
-                    Expanded(
-                      flex: 8,
-                      child: AvatarGlow(
-                        child: Material(
-                          elevation: 8.0,
-                          shape: const CircleBorder(),
-                          child: CircleAvatar(
-                            backgroundColor: Colors.white,
-                            radius: 70.0,
-                            child: ClipOval(
-                              child: Image.asset(
-                                ImageAssets.deltaLPGLogoPNG,
-                                height: 90,
-                                fit: BoxFit.cover,
+                DrawerHeader(
+                  padding: const EdgeInsets.all(0),
+                  child: Container(
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 8,
+                          child: Material(
+                            elevation: 0.0,
+                            shape: const CircleBorder(),
+                            child: CircleAvatar(
+                              backgroundColor: Colors.white,
+                              radius: 70.0,
+                              child: ClipOval(
+                                child: Image.asset(
+                                  ImageAssets.deltaLPGLogoPNG,
+                                  height: 90,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
-              ),
-            ),
+
+
+
+
+             ///------------------ old code 03 -----------------------------///
+            // DrawerHeader(
+            //   padding: const EdgeInsets.all(0),
+            //   child: Container(
+            //     child: Row(
+            //       children: [
+            //         Expanded(
+            //           flex: 8,
+            //           child: AvatarGlow(
+            //             child: Material(
+            //               elevation: 8.0,
+            //               shape: const CircleBorder(),
+            //               child: CircleAvatar(
+            //                 backgroundColor: Colors.white,
+            //                 radius: 70.0,
+            //                 child: ClipOval(
+            //                   child: Image.asset(
+            //                     ImageAssets.deltaLPGLogoPNG,
+            //                     height: 90,
+            //                     fit: BoxFit.cover,
+            //                   ),
+            //                 ),
+            //               ),
+            //             ),
+            //           ),
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // ),
 
 
 
