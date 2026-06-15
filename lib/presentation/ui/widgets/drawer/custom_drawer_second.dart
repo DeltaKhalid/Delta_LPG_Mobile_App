@@ -116,9 +116,11 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
     return Drawer(
       backgroundColor: Colors.white,
       width: 220,
-      child: Container(
-        child: ListView(
-          children: [
+      child: Column(
+        children: [
+          Expanded(
+            child: ListView(
+              children: [
 
 
 
@@ -477,18 +479,49 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
             ),
 
 
-            Divider(
-              height: 5,
-              color: Colors.grey[300],
-            ),
-
-
-            Divider(
-              height: 5,
-              color: Colors.grey[300],
-            ),
           ],
         ),
+      ),
+
+          ///---------------------------------------- Footer -------------------------------------------------------------///
+          const SizedBox(height: 50),
+          Divider(height: 1, thickness: 1, color: Colors.grey[300]),
+          //Divider(height: 1, thickness: 1, color: Colors.red[300]),
+          SizedBox(height: 10,),
+
+          Container(
+            height: 70,
+            width: 185,
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+            decoration: BoxDecoration(
+              color: Colors.grey[100],
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Delta LPG',
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.drawerIconTextColor,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  'Version 1.0.0',
+                  style: TextStyle(
+                    fontSize: 11,
+                    color: Colors.grey[600],
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          SizedBox(height: 10,),
+        ],
       ),
     );
   }
