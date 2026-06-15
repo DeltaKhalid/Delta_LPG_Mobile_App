@@ -37,6 +37,7 @@ class ImageAssets {
   static const String iconOrderPlacementSVG = '$_IMAGE_PATH/order_placement_icon.svg';
   static const String iconPaymentCollectionSVG = '$_IMAGE_PATH/payment_collection_icon.svg';
   static const String iconSalesReturnSVG = '$_IMAGE_PATH/sale_return_icon_02.svg';
+  static const String iconSalesReturn02SVG = '$_IMAGE_PATH/product_return_icon_02.svg';
   static const String iconAchievementSVG = '$_IMAGE_PATH/achievement_icon_03.svg';
   static const String iconReportsSVG = '$_IMAGE_PATH/reports.svg';
   static const String iconKnowledgeSVG = '$_IMAGE_PATH/knowledge_icon.svg';
@@ -56,6 +57,7 @@ class ImageAssets {
   ///---------- AppBar Icons ----------///
   static const String iconSearchSVG = '$_IMAGE_PATH/search_icon_2.svg';
   static const String iconBackArrow = '$_IMAGE_PATH/back_arrow.svg';
+  static const String iconBackArrow02SVG = '$_IMAGE_PATH/back_arrow_icon_02.svg';
 
 
 

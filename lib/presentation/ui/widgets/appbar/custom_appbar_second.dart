@@ -92,9 +92,10 @@ class _CustomAppbarSecondState extends State<CustomAppbarSecond> {
               //icon: Icon(SvgPicture.asset(ImageAssets.homeIconSVG)),
               icon: SvgPicture.asset(
                 //ImageAssets.logoutIcon2SVG,
-                ImageAssets.iconBackArrow,
+                ImageAssets.iconBackArrow02SVG,
                 width: 24,  // Adjust the width as needed
                 height: 24, // Adjust the height as needed
+                colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
               ),
             ),
 

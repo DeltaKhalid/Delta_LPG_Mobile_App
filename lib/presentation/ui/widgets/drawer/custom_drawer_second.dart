@@ -267,7 +267,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 colorFilter: const ColorFilter.mode(AppColors.drawerIconTextColor, BlendMode.srcIn),
               ),
               title: const Text(
-                'Home',
+                'Dashboard',
                 style: TextStyle(
                   fontSize: 15,
                   color: AppColors.drawerIconTextColor,
@@ -343,7 +343,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
               contentPadding: const EdgeInsets.symmetric(horizontal: 10),
               visualDensity: const VisualDensity(vertical: -4), // reduces height
               leading: SvgPicture.asset(
-                ImageAssets.iconSalesReturnSVG,
+                ImageAssets.iconSalesReturn02SVG,
                 width: 20,
                 colorFilter: const ColorFilter.mode(AppColors.drawerIconTextColor, BlendMode.srcIn),
               ),
@@ -403,7 +403,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
               contentPadding: const EdgeInsets.symmetric(horizontal: 10),
               visualDensity: const VisualDensity(vertical: -4), // reduces height
               leading: SvgPicture.asset(
-                ImageAssets.iconKnowledgeSVG,
+                ImageAssets.iconKnowledge02SVG,
                 width: 21,
                 colorFilter: const ColorFilter.mode(AppColors.drawerIconTextColor, BlendMode.srcIn),
               ),
