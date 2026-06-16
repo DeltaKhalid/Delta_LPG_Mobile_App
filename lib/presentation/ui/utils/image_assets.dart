@@ -69,6 +69,8 @@ class ImageAssets {
 
 
   ///---------- Attendance screen's Icon ---///
+  static const String iconStartTimeSVG = '$_IMAGE_PATH/start_time_icon_02.svg';
+  static const String iconEndTimeSVG = '$_IMAGE_PATH/end_time_icon_02.svg';
 
 
   ///---------- payment Screen's icons ---------///

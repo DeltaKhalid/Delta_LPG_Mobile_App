@@ -41,9 +41,9 @@ class AttendanceActivity extends StatelessWidget {
             ///------------- Start Time & End Time Cards ----------------///
             Row(
               children: [
-                Expanded(child: _buildTimeCard('Start Time', ImageAssets.iconAttendanceSVG)),
+                Expanded(child: _buildTimeCard('Start Time', ImageAssets.iconStartTimeSVG, color: const Color(0xFF62748E), iconSize: 20)),
                 const SizedBox(width: 12),
-                Expanded(child: _buildTimeCard('End Time', ImageAssets.iconAttendance06SVG)),
+                Expanded(child: _buildTimeCard('End Time', ImageAssets.iconEndTimeSVG, color: const Color(0xFF62748E), iconSize: 25)),
               ],
             ),
             const SizedBox(height: 24),
@@ -86,7 +86,7 @@ class AttendanceActivity extends StatelessWidget {
   ///============================================================///
   ///                     Time Card Widget                        ///
   ///============================================================///
-  Widget _buildTimeCard(String label, String iconPath) {
+  Widget _buildTimeCard(String label, String iconPath, {Color? color, double iconSize = 52}) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 24),
       decoration: BoxDecoration(
@@ -103,7 +103,7 @@ class AttendanceActivity extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SvgPicture.asset(iconPath, width: 52, height: 52),
+          SvgPicture.asset(iconPath, width: iconSize, height: iconSize, colorFilter: color != null ? ColorFilter.mode(color, BlendMode.srcIn) : null),
           const SizedBox(height: 12),
           Text(
             label,
