@@ -232,51 +232,40 @@ import 'package:flutter/material.dart';
 import '../utils/app_colors.dart';
 import 'login_screen.dart';
 
-// ✅ Extracted header as a separate const widget
 class _RegistrationHeader extends StatelessWidget {
   const _RegistrationHeader();
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 220,
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: [Color(0xFF80CA61), AppColors.primaryColorSecondShad02],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(36),
-          bottomRight: Radius.circular(36),
-        ),
-      ),
-      child: SafeArea(
-        bottom: false,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 32),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text(
-                'Sign Up',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                ),
+    return SafeArea(
+      bottom: false,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 32),
+        child: Column(
+          children: const [
+            SizedBox(height: 50),
+            Image(
+              image: AssetImage('assets/images/logo_delta_lpg.png'),
+              height: 80,
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Registration',
+              style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
               ),
-              SizedBox(height: 8),
-              Text(
-                'Please fill in your details',
-                style: TextStyle(
-                  color: Colors.white70,
-                  fontSize: 15,
-                ),
+            ),
+            SizedBox(height: 6),
+            Text(
+              'Welcome to Delta LPG',
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.black45,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
