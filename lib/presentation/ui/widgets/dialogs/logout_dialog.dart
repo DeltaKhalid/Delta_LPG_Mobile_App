@@ -18,7 +18,7 @@ class LogoutDialog {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Divider(color: Colors.redAccent, thickness: 0.5),
+            const Divider(color: Colors.green, thickness: 0.5),
             const SizedBox(height: 12),
             const Text(
               'Are you sure you want to logout?',

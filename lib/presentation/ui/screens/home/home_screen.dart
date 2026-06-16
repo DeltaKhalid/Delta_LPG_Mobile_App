@@ -36,13 +36,14 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
 
-  /// Helper: tints the SVG teal when active, grey when inactive
+  static const Color _activeColor = Color(0xFF03B55F);
+
   Widget _svgIcon(String assetPath, double width, int itemIndex) {
     return SvgPicture.asset(
       assetPath,
       width: width,
       colorFilter: ColorFilter.mode(
-        _currentIndex == itemIndex ? AppColors.primaryColorSecondShad02 : Colors.grey,
+        _currentIndex == itemIndex ? Colors.white : Colors.grey,
         BlendMode.srcIn,
       ),
     );
@@ -52,29 +53,29 @@ class _HomeScreenState extends State<HomeScreen> {
     /// Home
     SalomonBottomBarItem(
       icon: _svgIcon(ImageAssets.iconDashboardSVG, 23, 0),
-      title: const Text("Dashboard"),
-      selectedColor: AppColors.primaryColorSecondShad02,
+      title: const Text("Dashboard", style: TextStyle(color: Colors.white)),
+      selectedColor: _activeColor,
     ),
 
     /// Achievements
     SalomonBottomBarItem(
       icon: _svgIcon(ImageAssets.iconAchievementSVG, 23, 1),
-      title: const Text("Achievements"),
-      selectedColor: AppColors.primaryColorSecondShad02,
+      title: const Text("Achievements", style: TextStyle(color: Colors.white)),
+      selectedColor: _activeColor,
     ),
 
     /// Cart
     SalomonBottomBarItem(
       icon: _svgIcon(ImageAssets.iconReportsSVG, 20, 2),
-      title: const Text("Reports"),
-      selectedColor: AppColors.primaryColorSecondShad02,
+      title: const Text("Reports", style: TextStyle(color: Colors.white)),
+      selectedColor: _activeColor,
     ),
 
     /// Knowledge
     SalomonBottomBarItem(
       icon: _svgIcon(ImageAssets.iconKnowledge02SVG, 23, 3),
-      title: const Text("Knowledge"),
-      selectedColor: AppColors.primaryColorSecondShad02,
+      title: const Text("Knowledge", style: TextStyle(color: Colors.white)),
+      selectedColor: _activeColor,
     ),
 
   ];
@@ -125,6 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: SalomonBottomBar(
           duration: const Duration(milliseconds: 220),
           itemPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          selectedColorOpacity: 1.0,
           items: _items,
           currentIndex: _currentIndex,
           onTap: (index) => setState(() {
