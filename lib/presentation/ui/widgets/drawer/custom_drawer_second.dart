@@ -1,6 +1,6 @@
 
-import 'package:delta_lpg_product_sale/presentation/ui/screens/login_screen.dart';
 import 'package:delta_lpg_product_sale/presentation/ui/screens/registration_screen.dart';
+import 'package:delta_lpg_product_sale/presentation/ui/widgets/dialogs/logout_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -527,7 +527,10 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 ),
               ),
               onTap: () {
-                _navigateTo(const LoginScreen());
+                Navigator.of(context).pop();
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  LogoutDialog.show(context);
+                });
               },
             ),
 
