@@ -82,13 +82,7 @@ class _CustomAppbarSecondState extends State<CustomAppbarSecond> {
 
             ///---------- Logout Icon --------------------///
             IconButton(
-              onPressed: () async {
-                //await AuthUtility.clearUserInfo();
-                if (mounted) {
-                  Navigator.pop(context);
-                }
-
-              },
+              onPressed: () => Navigator.pop(context),
               //icon: Icon(SvgPicture.asset(ImageAssets.homeIconSVG)),
               icon: SvgPicture.asset(
                 //ImageAssets.logoutIcon2SVG,

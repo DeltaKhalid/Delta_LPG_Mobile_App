@@ -1,4 +1,5 @@
 
+import 'package:delta_lpg_product_sale/presentation/ui/screens/login_screen.dart';
 import 'package:delta_lpg_product_sale/presentation/ui/screens/registration_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -506,6 +507,27 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
               ),
               onTap: () {
                 _navigateTo(const RegistrationScreen());
+              },
+            ),
+
+            ///---------------------------------------- Logout -------------------------------------------------------------///
+            ListTile(
+              contentPadding: const EdgeInsets.symmetric(horizontal: 10),
+              visualDensity: const VisualDensity(vertical: -4), // reduces height
+              leading: SvgPicture.asset(
+                ImageAssets.iconLogOut03SVG,
+                width: 20,
+                colorFilter: const ColorFilter.mode(Color(0xFF62748E), BlendMode.srcIn),
+              ),
+              title: const Text(
+                'Logout',
+                style: TextStyle(
+                  fontSize: 15,
+                  color: AppColors.drawerIconTextColor,
+                ),
+              ),
+              onTap: () {
+                _navigateTo(const LoginScreen());
               },
             ),
 

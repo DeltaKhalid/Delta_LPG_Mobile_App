@@ -45,6 +45,7 @@ class ImageAssets {
   static const String iconSettingsSVG = '$_IMAGE_PATH/setting_icon.svg';
 
   ///---------- Drawer icons ----------///
+  static const String iconLogOut03SVG = '$_IMAGE_PATH/logout_icon_03.svg';
   static const String iconTutorialsSVG = '$_IMAGE_PATH/tutorial_icon.svg';
   static const String iconFaqSVG = '$_IMAGE_PATH/faq_icon.svg';
   static const String iconAboutUsSVG = '$_IMAGE_PATH/about_us_icon.svg';

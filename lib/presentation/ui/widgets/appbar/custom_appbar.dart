@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 
 
+import '../../screens/login_screen.dart';
 import '../../utils/app_colors.dart';
 
 import 'package:flutter/material.dart';
@@ -25,6 +26,63 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _CustomAppBarState extends State<CustomAppBar> {
+
+  ///========================================= Logout Dialog ===================================///
+  void _showLogoutDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        titlePadding: const EdgeInsets.fromLTRB(20, 24, 20, 0),
+        contentPadding: const EdgeInsets.fromLTRB(20, 12, 20, 20),
+        title: const Text(
+          'Logout',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Divider(color: Colors.green, thickness: 0.5),
+            const SizedBox(height: 12),
+            const Text(
+              'Are you sure you want to logout?',
+              style: TextStyle(fontSize: 14, color: Colors.black87),
+            ),
+            const SizedBox(height: 24),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                  onPressed: () => Navigator.of(ctx).pop(),
+                  child: const Text(
+                    'Cancel',
+                    style: TextStyle(color: Colors.grey, fontSize: 14),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                ElevatedButton(
+                  onPressed: () async {
+                    //await AuthUtility.clearUserInfo();
+                    Navigator.of(ctx).pop();
+                    Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (_) => const LoginScreen()),
+                          (route) => false,
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.redAccent,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                  ),
+                  child: const Text('Logout', style: TextStyle(color: Colors.white)),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 
   /// ======================================== BackButton Function of ============================= ///
   Future<bool> _onBackButtonPress() async {
@@ -198,22 +256,23 @@ class _CustomAppBarState extends State<CustomAppBar> {
             // ),
 
             ///---------- Search Icon --------------------///
-            IconButton(
-              onPressed: () async {
-                //await AuthUtility.clearUserInfo();
-                if (mounted) {
-                  _onBackButtonPress();
-                }
-
-              },
-              //icon: Icon(SvgPicture.asset(ImageAssets.homeIconSVG)),
-              icon: SvgPicture.asset(
-                //ImageAssets.logoutIcon2SVG,
-                ImageAssets.iconSearchSVG,
-                width: 24,  // Adjust the width as needed
-                height: 24, // Adjust the height as needed
-              ),
-            ),
+            // IconButton(
+            //   onPressed: () async {
+            //     //await AuthUtility.clearUserInfo();
+            //     if (mounted) {
+            //       //_onBackButtonPress();
+            //       _showLogoutDialog(context);
+            //     }
+            //
+            //   },
+            //   //icon: Icon(SvgPicture.asset(ImageAssets.homeIconSVG)),
+            //   icon: SvgPicture.asset(
+            //     //ImageAssets.logoutIcon2SVG,
+            //     ImageAssets.iconSearchSVG,
+            //     width: 24,  // Adjust the width as needed
+            //     height: 24, // Adjust the height as needed
+            //   ),
+            // ),
 
 
 
@@ -223,7 +282,8 @@ class _CustomAppBarState extends State<CustomAppBar> {
               onPressed: () async {
                 //await AuthUtility.clearUserInfo();
                 if (mounted) {
-                  _onBackButtonPress();
+                  //_onBackButtonPress();
+                  _showLogoutDialog(context);
                 }
 
               },

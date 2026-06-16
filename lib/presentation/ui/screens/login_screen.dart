@@ -2,6 +2,7 @@ import 'package:delta_lpg_product_sale/presentation/ui/screens/registration_scre
 import 'package:flutter/material.dart';
 
 import '../utils/app_colors.dart';
+import 'home/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -121,6 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 const SizedBox(height: 30),
+
                 SizedBox(
                   width: double.infinity,
                   height: 48,
@@ -131,13 +133,20 @@ class _LoginScreenState extends State<LoginScreen> {
                         borderRadius: BorderRadius.circular(25),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => const HomeScreen()),
+                        (route) => false,
+                      );
+                    },
                     child: const Text(
                       'Login',
                       style: TextStyle(fontSize: 16, color: Colors.white),
                     ),
                   ),
                 ),
+
               ],
             ),
           ),

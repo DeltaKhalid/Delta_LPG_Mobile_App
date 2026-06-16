@@ -1,5 +1,6 @@
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:delta_lpg_product_sale/presentation/ui/screens/home/home_screen.dart';
+import 'package:delta_lpg_product_sale/presentation/ui/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -21,10 +22,16 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(const Duration(seconds: 2)).then((_) async {
       // final bool isLoggedIn = await AuthUtility.checkIfUserLoggedIn();
       if (mounted) {
+        // Navigator.pushAndRemoveUntil(
+        //     context,
+        //     MaterialPageRoute(builder: (context) =>  HomeScreen()),
+        //         (route) => false);
+
         Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (context) =>  HomeScreen()),
+            MaterialPageRoute(builder: (context) =>  LoginScreen()),
                 (route) => false);
+
       }
     });
 
