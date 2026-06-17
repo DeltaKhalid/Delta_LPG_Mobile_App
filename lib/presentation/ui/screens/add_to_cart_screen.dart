@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-class AddToCartScreen extends StatefulWidget {
-  const AddToCartScreen({super.key});
+class ReportsScreen extends StatefulWidget {
+  const ReportsScreen({super.key});
 
   @override
-  State<AddToCartScreen> createState() => _AddToCartScreenState();
+  State<ReportsScreen> createState() => _ReportsScreenState();
 }
 
-class _AddToCartScreenState extends State<AddToCartScreen> {
+class _ReportsScreenState extends State<ReportsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('Add To Cart Screen.'),
+        child: Text('This is Reports Screen.'),
       ),
     );
   }

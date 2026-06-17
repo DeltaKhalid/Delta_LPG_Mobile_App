@@ -14,6 +14,8 @@ class CustomDrawer extends StatefulWidget {
   State<CustomDrawer> createState() => _CustomDrawerState();
 }
 
+/// *** This is not use for now, this is for future use. *** ///
+
 class _CustomDrawerState extends State<CustomDrawer> {
 
   ///======================================== LogOut Function ==========================================================///

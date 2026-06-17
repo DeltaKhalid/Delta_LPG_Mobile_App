@@ -12,7 +12,7 @@ class _KnowledgeScreenState extends State<KnowledgeScreen> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text("this is Knoledge Activity"),
+        child: Text("this is Knowledge Activity"),
       ),
     );
   }

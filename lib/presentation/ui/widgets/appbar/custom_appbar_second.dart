@@ -12,6 +12,15 @@ class CustomAppbarSecond extends StatefulWidget {
   State<CustomAppbarSecond> createState() => _CustomAppbarSecondState();
 }
 
+
+
+/// *** This is a custom AppBar widget, use for other screen which is not home screen. It has a back button and a title. *** ///
+
+
+
+
+
+
 class _CustomAppbarSecondState extends State<CustomAppbarSecond> {
 
   ///========================================= AppBar Design ===================================///

@@ -24,17 +24,30 @@ class CustomDrawerSecond extends StatefulWidget {
   State<CustomDrawerSecond> createState() => _CustomDrawerSecondState();
 }
 
+/// *** "Main Drawer" Widget for the app, which provides navigation to different screens and a logout option.
+
+
+
+
+///================================================================== Custom Drawer Widget ==========================================================///
 class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
   void _navigateTo(Widget page, {bool clearStack = false}) {
     Navigator.of(context).pop();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
       final route = PageRouteBuilder(
-        transitionDuration: const Duration(milliseconds: 200),
-        reverseTransitionDuration: const Duration(milliseconds: 170),
+        transitionDuration: const Duration(milliseconds: 280),
+        reverseTransitionDuration: const Duration(milliseconds: 280),
         pageBuilder: (_, __, ___) => page,
         transitionsBuilder: (_, animation, __, child) {
-          return FadeTransition(opacity: animation, child: child);
+          final tween = Tween(
+            begin: const Offset(1.0, 0.0),
+            end: Offset.zero,
+          ).chain(CurveTween(curve: Curves.fastOutSlowIn));
+          return SlideTransition(
+            position: animation.drive(tween),
+            child: child,
+          );
         },
       );
       if (clearStack) {
@@ -108,9 +121,6 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
   }
 
 
-
-
-
   ///======================================== Drawer part =================================================================///
   @override
   Widget build(BuildContext context) {
@@ -122,7 +132,6 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
           Expanded(
             child: ListView(
               children: [
-
 
                 DrawerHeader(
                   padding: const EdgeInsets.all(0),
@@ -366,7 +375,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
               ),
 
               onTap: () {
-                _navigateTo(const TutorialScreen());
+                _navigateTo(const HomeScreen(initialIndex: 2), clearStack: true);
               },
             ),
             ///---------------------------------------- Order Placement -------------------------------------------------------------///

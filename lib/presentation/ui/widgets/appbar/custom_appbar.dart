@@ -25,6 +25,10 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   Size get preferredSize => const Size.fromHeight(50);
 }
 
+
+/// *** this is the custom appbar for "Home Dashboard Screen" and "Knowledge Screen" and "Report Screen" and "Achievement Screen".
+
+
 class _CustomAppBarState extends State<CustomAppBar> {
 
   ///========================================= Logout Dialog ===================================///

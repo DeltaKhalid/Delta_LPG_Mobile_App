@@ -13,7 +13,9 @@ import 'knowledge_screen.dart';
 
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({super.key, this.initialIndex = 0});
+
+  final int initialIndex;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -22,7 +24,13 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 
   ///===================== Bottom Navbar Item start ===============///
-  int _currentIndex = 0;
+  late int _currentIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentIndex = widget.initialIndex;
+  }
 
   //final navigationKey = GlobalKey<CurvedNavigationBarState>();
   // int index = 2;
@@ -30,8 +38,8 @@ class _HomeScreenState extends State<HomeScreen> {
   int index = 0;
   final screen = [
     const HomeDashboardScreen(),
-    const FavoriteProductScreen(),
-    const AddToCartScreen(),
+    const AchievementScreen(),
+    const ReportsScreen(),
     const KnowledgeScreen(),
   ];
 
