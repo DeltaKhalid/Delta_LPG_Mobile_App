@@ -1,5 +1,8 @@
 
+import 'package:delta_lpg_product_sale/presentation/ui/screens/collection/collection_activity.dart';
+import 'package:delta_lpg_product_sale/presentation/ui/screens/order/order_activity.dart';
 import 'package:delta_lpg_product_sale/presentation/ui/screens/registration_screen.dart';
+import 'package:delta_lpg_product_sale/presentation/ui/screens/settings/settings_activity.dart';
 import 'package:delta_lpg_product_sale/presentation/ui/widgets/dialogs/logout_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -395,7 +398,8 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 ),
               ),
               onTap: () {
-                _navigateTo(const FaqScreen());
+                //_navigateTo(const FaqScreen());
+                _navigateTo(const OrderActivity());
               },
             ),
             ///---------------------------------------- Payment Collections -------------------------------------------------------------///
@@ -415,7 +419,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 ),
               ),
               onTap: () {
-                _navigateTo(const AboutUsScreen());
+                _navigateTo(const CollectionActivity());
               },
             ),
             ///---------------------------------------- Sales Return -------------------------------------------------------------///
@@ -455,29 +459,11 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 ),
               ),
               onTap: () {
-                _navigateTo(const ReturnRefundScreen());
+                // _navigateTo(const ReturnRefundScreen());
+                _navigateTo(const HomeScreen(initialIndex: 1), clearStack: true);
               },
             ),
-            ///---------------------------------------- Reports -------------------------------------------------------------///
-            ListTile(
-              contentPadding: const EdgeInsets.symmetric(horizontal: 10),
-              visualDensity: const VisualDensity(vertical: -4), // reduces height
-              leading: SvgPicture.asset(
-                ImageAssets.iconReportsSVG,
-                width: 20,
-                colorFilter: const ColorFilter.mode(AppColors.drawerIconTextColor, BlendMode.srcIn),
-              ),
-              title: const Text(
-                'Reports',
-                style: TextStyle(
-                  fontSize: 15,
-                  color: AppColors.drawerIconTextColor,
-                ),
-              ),
-              onTap: () {
-                _navigateTo(const DeliveryChargeScreen());
-              },
-            ),
+
             ///---------------------------------------- Knowledge -------------------------------------------------------------///
             ListTile(
               contentPadding: const EdgeInsets.symmetric(horizontal: 10),
@@ -495,7 +481,8 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 ),
               ),
               onTap: () {
-                _navigateTo(const ContactUsScreen());
+                //_navigateTo(const ContactUsScreen());
+                _navigateTo(const HomeScreen(initialIndex: 3), clearStack: true);
               },
             ),
             ///---------------------------------------- Settings -------------------------------------------------------------------///
@@ -515,7 +502,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 ),
               ),
               onTap: () {
-                _navigateTo(const RegistrationScreen());
+                _navigateTo(const SettingsActivity());
               },
             ),
 

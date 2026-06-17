@@ -13,7 +13,7 @@ class CustomAppbarSecond extends StatefulWidget {
 }
 
 
-
+/// *** Others page AppBar *** ///
 /// *** This is a custom AppBar widget, use for other screen which is not home screen. It has a back button and a title. *** ///
 
 
