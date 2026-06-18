@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../utils/app_colors.dart';
+import 'cart_activity.dart';
 
 // ─── Colors ───────────────────────────────────────────────────────────────────
 const _kCartNavy   = Color(0xFF1A2C6B);
@@ -131,7 +132,16 @@ class _DetailsOrderActivityState extends State<DetailsOrderActivity> {
             children: [
               IconButton(
                 icon: const Icon(Icons.shopping_cart, color: _kCartNavy, size: 22),
-                onPressed: () {},
+                onPressed: () => Navigator.of(context).push(PageRouteBuilder(
+                  transitionDuration: const Duration(milliseconds: 280),
+                  reverseTransitionDuration: const Duration(milliseconds: 280),
+                  pageBuilder: (_, __, ___) => const CartActivity(),
+                  transitionsBuilder: (_, animation, __, child) {
+                    final tween = Tween(begin: const Offset(1.0, 0.0), end: Offset.zero)
+                        .chain(CurveTween(curve: Curves.fastOutSlowIn));
+                    return SlideTransition(position: animation.drive(tween), child: child);
+                  },
+                )),
               ),
               if (_cartCount > 0)
                 Positioned(
@@ -273,8 +283,8 @@ class _ProductCard extends StatelessWidget {
 
           // ── Left: product image ─────────────────────────────────────────────
           Container(
-            width: 78,
-            height: 78,
+            width: 150,
+            height: 220,
             decoration: BoxDecoration(
               color: const Color(0xFFEDF7F1),
               borderRadius: BorderRadius.circular(12),
@@ -303,7 +313,7 @@ class _ProductCard extends StatelessWidget {
                     _Chip(label: data.category, bgColor: _kCatBadge, textColor: _kCatText),
                   ],
                 ),
-                const SizedBox(height: 5),
+                const SizedBox(height: 25),
 
                 // Product name
                 Text(
@@ -345,6 +355,31 @@ class _ProductCard extends StatelessWidget {
                         ),
                       ],
                     ),
+
+                    // GestureDetector(
+                    //   onTap: onAdd,
+                    //   child: Container(
+                    //     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    //     decoration: BoxDecoration(
+                    //       color: AppColors.primaryButtonColor,
+                    //       borderRadius: BorderRadius.circular(20),
+                    //       boxShadow: [BoxShadow(color: AppColors.primaryButtonColor.withOpacity(0.30), blurRadius: 6, offset: const Offset(0, 3))],
+                    //     ),
+                    //     child: const Text(
+                    //       '+ ADD',
+                    //       style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Colors.white),
+                    //     ),
+                    //   ),
+                    // ),
+
+                  ],
+                ),
+
+                const SizedBox(height: 8),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
                     GestureDetector(
                       onTap: onAdd,
                       child: Container(
@@ -352,7 +387,7 @@ class _ProductCard extends StatelessWidget {
                         decoration: BoxDecoration(
                           color: AppColors.primaryButtonColor,
                           borderRadius: BorderRadius.circular(20),
-                          boxShadow: [BoxShadow(color: AppColors.primaryButtonColor.withOpacity(0.30), blurRadius: 6, offset: const Offset(0, 3))],
+                          boxShadow: [BoxShadow(color: AppColors.primaryButtonColor.withValues(alpha: 0.30), blurRadius: 6, offset: const Offset(0, 3))],
                         ),
                         child: const Text(
                           '+ ADD',
