@@ -260,75 +260,111 @@ class _ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 8),
-      padding: const EdgeInsets.fromLTRB(12, 10, 12, 12),
+      margin: const EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.04), blurRadius: 6, offset: const Offset(0, 2))],
+        borderRadius: BorderRadius.circular(14),
+        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 8, offset: const Offset(0, 2))],
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
 
-          // Row 1 — ID chip | Category chip
-          Row(
-            children: [
-              _Chip(label: data.id,       bgColor: _kIdBadge,  textColor: Colors.white),
-              const SizedBox(width: 8),
-              _Chip(label: data.category, bgColor: _kCatBadge, textColor: _kCatText),
-            ],
-          ),
-          const SizedBox(height: 8),
-
-          // Row 2 — Product name
-          Text(
-            data.name,
-            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: _kNameText),
-          ),
-          const SizedBox(height: 4),
-
-          // Row 3 — Unit
-          Row(
-            children: [
-              const Icon(Icons.table_rows_outlined, size: 13, color: _kUnitText),
-              const SizedBox(width: 5),
-              Text('Unit: ${data.unit}', style: const TextStyle(fontSize: 12, color: _kUnitText)),
-            ],
-          ),
-          const SizedBox(height: 10),
-
-          // Row 4 — RATE + price | +ADD button
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text('RATE', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w600, color: _kRateLabel, letterSpacing: 0.6)),
-                  const SizedBox(height: 2),
-                  Text(
-                    'AED ${data.rate.toStringAsFixed(2)}',
-                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: _kNameText),
-                  ),
-                ],
+          // ── Left: product image ─────────────────────────────────────────────
+          Container(
+            width: 78,
+            height: 78,
+            decoration: BoxDecoration(
+              color: const Color(0xFFEDF7F1),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.asset(
+                'assets/images/product_demo_img.png',
+                fit: BoxFit.cover,
               ),
-              GestureDetector(
-                onTap: onAdd,
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                  decoration: BoxDecoration(
-                    color: AppColors.primaryButtonColor,
-                    borderRadius: BorderRadius.circular(24),
-                  ),
-                  child: const Text(
-                    '+ ADD',
-                    style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.white),
-                  ),
+            ),
+          ),
+          const SizedBox(width: 12),
+
+          // ── Right: all product info ─────────────────────────────────────────
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+
+                // ID chip + Category chip
+                Row(
+                  children: [
+                    _Chip(label: data.id,       bgColor: _kIdBadge,  textColor: Colors.white),
+                    const SizedBox(width: 6),
+                    _Chip(label: data.category, bgColor: _kCatBadge, textColor: _kCatText),
+                  ],
                 ),
-              ),
-            ],
+                const SizedBox(height: 5),
+
+                // Product name
+                Text(
+                  data.name,
+                  style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: _kNameText),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(height: 3),
+
+                // Unit
+                Row(
+                  children: [
+                    const Icon(Icons.table_rows_outlined, size: 12, color: _kUnitText),
+                    const SizedBox(width: 4),
+                    Expanded(
+                      child: Text(
+                        'Unit: ${data.unit}',
+                        style: const TextStyle(fontSize: 11, color: _kUnitText),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 8),
+
+                // RATE + ADD button
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text('RATE', style: TextStyle(fontSize: 9, fontWeight: FontWeight.w600, color: _kRateLabel, letterSpacing: 0.6)),
+                        Text(
+                          'AED ${data.rate.toStringAsFixed(2)}',
+                          style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700, color: _kNameText),
+                        ),
+                      ],
+                    ),
+                    GestureDetector(
+                      onTap: onAdd,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        decoration: BoxDecoration(
+                          color: AppColors.primaryButtonColor,
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [BoxShadow(color: AppColors.primaryButtonColor.withOpacity(0.30), blurRadius: 6, offset: const Offset(0, 3))],
+                        ),
+                        child: const Text(
+                          '+ ADD',
+                          style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+
+              ],
+            ),
           ),
 
         ],
