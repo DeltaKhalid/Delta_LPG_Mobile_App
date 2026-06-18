@@ -53,6 +53,7 @@ class AppColors {
 
 
 
+  static const Color primaryButtonColor = Color(0xFF4CAF50); // Primary button color used across all main action buttons
   static const Color buttonBgGreenColor = Color(0xFF03b55f); // button color  -> AppColors.buttonBgColor
   static const Color buttonBgRedColor = Color(0xFFE9242A); // This is the main color of App
 
