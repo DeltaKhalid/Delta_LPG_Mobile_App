@@ -35,25 +35,24 @@ class _ProductData {
 // ─── Demo products ────────────────────────────────────────────────────────────
 
 const List<_ProductData> _kProducts = [
-  _ProductData(id: '1001', name: 'PUSTI HT. DRY CAKE 70GM',     unit: 'Ctn (24.0 Pcs/Ctn)',  rate: 1.27,  category: 'BISCUITS'),
-  _ProductData(id: '1002', name: 'PUSTI HT. POPS BISCUIT 25GM', unit: 'Ctn (48.0 Ctn/Ctn)',  rate: 0.32,  category: 'BISCUITS'),
-  _ProductData(id: '1003', name: 'TIGER CREAM BISCUIT 90GM',    unit: 'Ctn (36.0 Pcs/Ctn)',  rate: 2.15,  category: 'BISCUITS'),
-  _ProductData(id: '1004', name: 'LAYS CLASSIC CHIPS 28G',      unit: 'Ctn (50.0 Pcs/Ctn)',  rate: 0.75,  category: 'SNACKS'),
-  _ProductData(id: '1005', name: 'CHEETOS CRUNCHY 30G',         unit: 'Ctn (40.0 Pcs/Ctn)',  rate: 0.90,  category: 'SNACKS'),
-  _ProductData(id: '1006', name: 'KURKURE MASALA 20G',          unit: 'Ctn (60.0 Pcs/Ctn)',  rate: 0.45,  category: 'SNACKS'),
-  _ProductData(id: '1007', name: 'BASMATI RICE 5KG',            unit: 'Bag (1.0 Bag/Bag)',   rate: 8.50,  category: 'RICE'),
-  _ProductData(id: '1008', name: 'SELLA RICE 2KG',              unit: 'Bag (1.0 Bag/Bag)',   rate: 3.20,  category: 'RICE'),
-  _ProductData(id: '1009', name: 'SUNFLOWER OIL 1LTR',         unit: 'Ctn (12.0 Btl/Ctn)',  rate: 4.10,  category: 'OIL'),
-  _ProductData(id: '1010', name: 'PALM OLEIN 5LTR',             unit: 'Ctn (4.0 Btl/Ctn)',   rate: 14.75, category: 'OIL'),
-  _ProductData(id: '1011', name: 'KLEENEX TISSUES 200SHT',      unit: 'Ctn (24.0 Bx/Ctn)',   rate: 1.85,  category: 'TISSUES'),
-  _ProductData(id: '1012', name: 'SCOTTIES FACIAL TISSUE 100',  unit: 'Ctn (30.0 Bx/Ctn)',   rate: 1.10,  category: 'TISSUES'),
-  _ProductData(id: '1013', name: 'LIPTON YELLOW LABEL 100TB',   unit: 'Ctn (24.0 Pkt/Ctn)',  rate: 3.60,  category: 'TEA & COFFEE'),
-  _ProductData(id: '1014', name: 'NESCAFE CLASSIC 200G',        unit: 'Ctn (12.0 Jar/Ctn)',  rate: 11.25, category: 'TEA & COFFEE'),
+  // Bulk
+  _ProductData(id: '1001', name: 'LPG BULK 500KG',              unit: 'Unit (1.0 Unit/Unit)', rate: 270.00,  category: 'Bulk'),
+  _ProductData(id: '1002', name: 'LPG BULK 1 TON',              unit: 'Ton (1.0 Ton/Ton)',    rate: 520.00,  category: 'Bulk'),
+  _ProductData(id: '1003', name: 'LPG BULK 2 TON',              unit: 'Ton (1.0 Ton/Ton)',    rate: 1000.00, category: 'Bulk'),
+  _ProductData(id: '1004', name: 'LPG BULK 5 TON',              unit: 'Ton (1.0 Ton/Ton)',    rate: 2400.00, category: 'Bulk'),
+  // Package
+  _ProductData(id: '2001', name: 'LPG PACKAGE SMALL',           unit: 'Pcs (1.0 Pcs/Pcs)',   rate: 35.00,   category: 'Package'),
+  _ProductData(id: '2002', name: 'LPG PACKAGE MEDIUM',          unit: 'Pcs (1.0 Pcs/Pcs)',   rate: 75.00,   category: 'Package'),
+  _ProductData(id: '2003', name: 'LPG PACKAGE LARGE',           unit: 'Pcs (1.0 Pcs/Pcs)',   rate: 140.00,  category: 'Package'),
+  _ProductData(id: '2004', name: 'LPG PACKAGE PREMIUM',         unit: 'Pcs (1.0 Pcs/Pcs)',   rate: 210.00,  category: 'Package'),
+  // Refill
+  _ProductData(id: '3001', name: 'LPG CYLINDER 5KG',            unit: 'Pcs (1.0 Pcs/Pcs)',   rate: 12.00,   category: 'Refill'),
+  _ProductData(id: '3002', name: 'LPG CYLINDER 12KG',           unit: 'Pcs (1.0 Pcs/Pcs)',   rate: 25.00,   category: 'Refill'),
+  _ProductData(id: '3003', name: 'LPG CYLINDER 35KG',           unit: 'Pcs (1.0 Pcs/Pcs)',   rate: 65.00,   category: 'Refill'),
+  _ProductData(id: '3004', name: 'LPG CYLINDER 45KG',           unit: 'Pcs (1.0 Pcs/Pcs)',   rate: 82.00,   category: 'Refill'),
 ];
 
-const List<String> _kCategories = [
-  'All Categories', 'BISCUITS', 'SNACKS', 'RICE', 'OIL', 'TISSUES', 'TEA & COFFEE',
-];
+const List<String> _kCategories = ['Refill', 'Package', 'Bulk'];
 
 // ─── Activity ─────────────────────────────────────────────────────────────────
 
@@ -76,14 +75,11 @@ class DetailsOrderActivity extends StatefulWidget {
 class _DetailsOrderActivityState extends State<DetailsOrderActivity> {
   final TextEditingController _searchCtrl = TextEditingController();
   String _searchQuery      = '';
-  String _selectedCategory = 'All Categories';
+  String _selectedCategory = 'Refill';
   int    _cartCount        = 0;
 
   List<_ProductData> get _filtered {
-    var list = _kProducts;
-    if (_selectedCategory != 'All Categories') {
-      list = list.where((p) => p.category == _selectedCategory).toList();
-    }
+    var list = _kProducts.where((p) => p.category == _selectedCategory).toList();
     if (_searchQuery.isNotEmpty) {
       final q = _searchQuery.toLowerCase();
       list = list.where((p) => p.name.toLowerCase().contains(q) || p.id.contains(q)).toList();
@@ -189,42 +185,51 @@ class _DetailsOrderActivityState extends State<DetailsOrderActivity> {
             ),
           ),
 
-          // Category filter tabs
-          SizedBox(
-            height: 40,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              itemCount: _kCategories.length,
-              itemBuilder: (_, i) {
-                final cat      = _kCategories[i];
-                final selected = cat == _selectedCategory;
-                return GestureDetector(
-                  onTap: () => setState(() => _selectedCategory = cat),
-                  child: Container(
-                    margin: const EdgeInsets.only(right: 8),
-                    padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-                    decoration: BoxDecoration(
-                      color: selected ? AppColors.primaryButtonColor : Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: selected ? AppColors.primaryButtonColor : _kBorder),
-                    ),
-                    child: Text(
-                      cat,
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
-                        color: selected ? Colors.white : _kCatText,
+          // Category segmented control — full width, 3 equal tabs
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
+            child: Container(
+              padding: const EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                color: const Color(0xFFEDF0F4),
+                borderRadius: BorderRadius.circular(14),
+              ),
+              child: Row(
+                children: [
+                  for (int i = 0; i < _kCategories.length; i++) ...[
+                  if (i > 0) const SizedBox(width: 5),
+                  Expanded(child: Builder(builder: (_) {
+                  final cat = _kCategories[i];
+                  final selected = cat == _selectedCategory;
+                  return GestureDetector(
+                      onTap: () => setState(() => _selectedCategory = cat),
+                      child: AnimatedContainer(
+                        duration: const Duration(milliseconds: 220),
+                        curve: Curves.easeInOut,
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        decoration: BoxDecoration(
+                          color: selected ? AppColors.primaryButtonColor : Colors.transparent,
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: selected
+                              ? [BoxShadow(color: AppColors.primaryButtonColor.withOpacity(0.28), blurRadius: 8, offset: const Offset(0, 3))]
+                              : [],
+                        ),
+                        child: Text(
+                          cat,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                            color: selected ? Colors.white : _kSubText,
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                );
-              },
+                    );
+                  }))],
+                ],
+              ),
             ),
           ),
-
-          // Blue underline under selected tab
-          Container(height: 2, margin: const EdgeInsets.only(top: 6), color: _kBorder.withOpacity(0.5)),
 
           // Product list
           Expanded(
