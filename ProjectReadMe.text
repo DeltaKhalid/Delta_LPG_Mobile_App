@@ -1,0 +1,27 @@
+lib/
+  ├── main.dart
+  ├── application/
+  │   └── app.dart
+  └── presentation/ui/
+      ├── home_dashboard_screen.dart
+      ├── screens/
+      │   ├── add_to_cart_screen.dart
+      │   ├── favorite_product_screen.dart
+      │   ├── login_screen.dart
+      │   ├── registration_screen.dart
+      │   ├── splash_screen.dart
+      │   ├── attendance/
+      │   ├── collection/       (collection_activity, collection_details_activity)
+      │   ├── drawer/           (about_us, contact_us, delivery_charge, faq, return_refund, safety_guide, tutorial)
+      │   ├── home/             (buy_lpg, home, knowledge, lpg_accessories, safety_tips, safety_video)
+      │   ├── leave/
+      │   ├── order/            (cart_activity, details_order_activity, order_activity)
+      │   └── settings/
+      ├── utils/
+      │   ├── app_colors.dart
+      │   ├── image_assets.dart
+      │   └── demo_code.text.dart
+      └── widgets/
+          ├── appbar/           (custom_appbar, custom_appbar_second)
+          ├── dialogs/          (logout_dialog)
+          └── drawer/           (custom_drawer, custom_drawer_second)
