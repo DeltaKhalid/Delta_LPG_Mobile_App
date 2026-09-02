@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-class AchievementScreen extends StatefulWidget {
-  const AchievementScreen({super.key});
+class FavoriteProductScreen extends StatefulWidget {
+  const FavoriteProductScreen({super.key});
 
   @override
-  State<AchievementScreen> createState() => _AchievementScreenState();
+  State<FavoriteProductScreen> createState() => _FavoriteProductScreenState();
 }
 
-class _AchievementScreenState extends State<AchievementScreen> {
+class _FavoriteProductScreenState extends State<FavoriteProductScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text("This is Achievement Screen."),
+        child: Text("This is Achievement Screen 002."),
       ),
     );
   }

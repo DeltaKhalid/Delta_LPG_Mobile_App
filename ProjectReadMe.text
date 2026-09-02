@@ -1,3 +1,44 @@
+
+# ========================================= Clean Architecture with BLoC ====================================== #
+lib/
+├── application/             ← app entry
+├── data/
+│   ├── models/              ← data classes (User, Order, Customer...)
+│   ├── repositories/        ← concrete impls (AuthRepositoryImpl, OrderRepositoryImpl...)
+│   └── datasources/         ← raw HTTP / local storage
+├── domain/                  ← ADD THIS
+│   └── repositories/        ← abstract contracts (AuthRepository, OrderRepository...)
+├── business_logic/
+│   └── blocs/
+│       ├── auth/            ← depends on domain/repositories/auth_repository.dart (interface)
+│       ├── attendance/      ← AttendanceBloc
+│       ├── leave/           ← LeaveBloc
+│       ├── order/           ← OrderBloc
+│       └── collection/      ← CollectionBloc
+└── presentation/
+
+
+
+
+# ========================================= New architecture with "BLoC" State Management ====================== #
+  lib/
+  ├── application/           ← app entry
+  ├── data/
+  │   ├── models/            ← data classes (User, Order, Customer...)
+  │   ├── repositories/      ← API calls live here
+  │   └── datasources/       ← raw HTTP / local storage
+  ├── business_logic/
+  │   └── blocs/
+  │       ├── auth/          ← AuthBloc (login, logout, session)
+  │       ├── attendance/    ← AttendanceBloc
+  │       ├── leave/         ← LeaveBloc
+  │       ├── order/         ← OrderBloc
+  │       └── collection/    ← CollectionBloc
+  └── presentation/
+
+
+
+# ========================================= Old architecture 01 ================================================= #
 lib/
   ├── main.dart
   ├── application/

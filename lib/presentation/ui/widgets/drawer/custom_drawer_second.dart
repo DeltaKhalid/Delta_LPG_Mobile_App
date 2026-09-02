@@ -1,6 +1,7 @@
 
 import 'package:delta_lpg_product_sale/presentation/ui/screens/collection/collection_activity.dart';
 import 'package:delta_lpg_product_sale/presentation/ui/screens/order/order_activity.dart';
+import 'package:delta_lpg_product_sale/presentation/ui/screens/order/sales_return_activity.dart';
 import 'package:delta_lpg_product_sale/presentation/ui/screens/registration_screen.dart';
 import 'package:delta_lpg_product_sale/presentation/ui/screens/settings/settings_activity.dart';
 import 'package:delta_lpg_product_sale/presentation/ui/widgets/dialogs/logout_dialog.dart';
@@ -59,68 +60,6 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
         Navigator.of(context).push(route);
       }
     });
-  }
-
-
-  ///======================================== LogOut Function ==========================================================///
-  Future<bool> _logOutFunctionCall() async {
-    return (await showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0), // Set your desired corner radius here
-        ),
-        titlePadding: const EdgeInsets.only(left: 16, top: 20),
-        contentPadding: const EdgeInsets.only(left: 8, right: 8, bottom: 0),
-        title: const Center(child: Text('Are you sure?'),),
-        //content: const Text('Do you want to exit'),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Padding(
-              padding: EdgeInsets.only(left: 20, right: 20),
-              child: Divider(
-                color: Colors.redAccent, // Set your desired color for the divider
-                thickness: 0.5, // Set the thickness of the divider
-              ),
-            ),
-            const SizedBox(height: 20),
-            Container(
-              //padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              padding: const EdgeInsets.only(bottom: 20, left: 20, right: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  ///--- No press Event Work ---///
-                  ElevatedButton(
-                    onPressed: () => Navigator.of(context).pop(false),
-                    style: ElevatedButton.styleFrom(
-                      //primary: Colors.grey, // Set your desired color for "No" button
-                    ),
-                    child: const Text('No'),
-                  ),
-                  ///--- Yes Press Event Work ---///
-                  ElevatedButton(
-                    onPressed: () {
-
-
-
-
-                    },
-                    style: ElevatedButton.styleFrom(
-                      //primary: Colors.red, // Set your desired color for "Yes" button
-                      //backgroundColor: Colors.greenAccent,
-                    ),
-                    child: const Text('Yes'),
-                  ),
-
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    )) ?? false;
   }
 
 
@@ -439,7 +378,7 @@ class _CustomDrawerSecondState extends State<CustomDrawerSecond> {
                 ),
               ),
               onTap: () {
-                _navigateTo(const SafetyGuideScreen());
+                _navigateTo(const SalesReturnActivity());
               },
             ),
             ///---------------------------------------- Achievement -------------------------------------------------------------///
