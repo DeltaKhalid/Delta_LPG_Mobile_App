@@ -1,20 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import 'package:delta_lpg_product_sale/presentation/ui/screens/splash_screen.dart';
 import 'package:delta_lpg_product_sale/presentation/ui/utils/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -37,9 +21,6 @@ void main() {
       systemNavigationBarColor:  AppColors.whiteColor,
     ),
   );
-
-
-
 
   runApp(const DeltaLPGSalesApp());
   FlutterNativeSplash.remove();
